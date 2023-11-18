@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_18_210112) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_18_210635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_18_210112) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "station_id", null: false
+    t.index ["station_id"], name: "index_reviews_on_station_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -44,6 +48,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_18_210112) do
     t.integer "avg_rating"
     t.datetime "last_updated", precision: nil
     t.boolean "status"
+    t.bigint "review_id", null: false
+    t.index ["review_id"], name: "index_stations_on_review_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +67,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_18_210112) do
     t.index ["score_id"], name: "index_users_on_score_id"
   end
 
+  add_foreign_key "reviews", "stations"
+  add_foreign_key "reviews", "users"
   add_foreign_key "scores", "users"
+  add_foreign_key "stations", "reviews"
   add_foreign_key "users", "scores"
 end

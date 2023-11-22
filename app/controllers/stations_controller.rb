@@ -1,6 +1,12 @@
 class StationsController < ApplicationController
   def index
-      @stations = Station.all
+    @stations = Station.all
+    @markers = @stations.geocoded.map do |s|
+      {
+        lat: s.latitude,
+        lng: s.longitude
+      }
+    end
   end
 
   def new
@@ -24,6 +30,6 @@ class StationsController < ApplicationController
   private
 
   def station_params
-    params.require(:station).permit(:intersection, :description, photos: [])
+    params.require(:station).permit(:address, :description, photos: [])
   end
 end

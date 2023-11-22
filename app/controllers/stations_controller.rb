@@ -1,4 +1,14 @@
 class StationsController < ApplicationController
+  def index
+    @stations = Station.all
+    @markers = @stations.geocoded.map do |s|
+      {
+        lat: s.latitude,
+        lng: s.longitude
+      }
+    end
+  end
+
   def new
     @station = Station.new
   end

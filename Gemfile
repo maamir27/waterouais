@@ -48,6 +48,9 @@ gem "bootsnap", require: false
 gem "dotenv-rails"
 gem "cloudinary"
 
+#GEOCODER
+gem "geocoder"
+
 gem "bootstrap", "~> 5.2"
 gem "devise"
 gem "autoprefixer-rails"

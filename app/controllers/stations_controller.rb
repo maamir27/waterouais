@@ -30,6 +30,6 @@ class StationsController < ApplicationController
   private
 
   def station_params
-    params.require(:station).permit(:intersection, :description, photos: [])
+    params.require(:station).permit(:address, :description, photos: [])
   end
 end

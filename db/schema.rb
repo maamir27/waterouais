@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_003012) do
-
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_020643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,7 +76,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_003012) do
     t.integer "avg_rating"
     t.datetime "last_updated", precision: nil
     t.boolean "status", default: true
+    t.bigint "review_id", null: false
     t.string "description"
+    t.index ["review_id"], name: "index_stations_on_review_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,4 +99,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_003012) do
   add_foreign_key "reviews", "stations"
   add_foreign_key "reviews", "users"
   add_foreign_key "scores", "users"
+  add_foreign_key "stations", "reviews"
 end

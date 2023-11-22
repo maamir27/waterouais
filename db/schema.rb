@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_011741) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_020643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_011741) do
     t.integer "avg_rating"
     t.datetime "last_updated", precision: nil
     t.boolean "status", default: true
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|

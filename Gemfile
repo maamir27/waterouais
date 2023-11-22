@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 
 # CLOUDINARY
 gem "dotenv-rails"
+gem "cloudinary"
 
 gem "bootstrap", "~> 5.2"
 gem "devise"

@@ -22,6 +22,8 @@ class StationsController < ApplicationController
     @station.user = current_user
     if @station.save
       redirect_to station_path(@station)
+      current_user.score.increment!(:stations_created, 5)
+      current_user.calculate_total_score
     else
       render :new, status: :unprocessable_entity
     end

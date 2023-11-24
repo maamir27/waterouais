@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
+    @station = Station.find(params["station_id"].to_i)
+  end
+
+  def create
+    @review = Review.new
   end
 
   def destroy

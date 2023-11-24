@@ -1,3 +1,8 @@
 <h1>Leave a Review</h1>
 
-<%= render 'form', review: @review %>
+<%= simple_form_for [@station, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :description %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,9 +1,15 @@
 <h1><%= @station.name %></h1>
 
-<p>Intersection: <%= @station.intersection %></p>
+<p>Address: <%= @station.address %></p>
 <p>Rating: <%= @station.avg_rating %></p>
 
 
 <% @station.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+
+
+<%= link_to "Back to Browse", root_path, :class => "btn btn-secondary" %>
+
+<%# HOW TO ROUTE TO REVIEW FOR STATION PAGE %>
+<%# <%= link_to "Check-in", review_path, :class => "btn btn-secondary" %>

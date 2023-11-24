@@ -1,5 +1,7 @@
 <%= simple_form_for(station) do |f| %>
-  <!-- [...] -->
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <!-- [...] -->
+  <%= f.button :submit %>
 <% end %>

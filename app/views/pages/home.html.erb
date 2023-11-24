@@ -3,9 +3,12 @@
 </div>
 
 <div>
-  <div class="container d-flex justify-content-center">
-    <h1>Map</h1>
+  <div class="container d-flex justify-content-center" style="width: 100%; height: 600px;>
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+ </div>
 
   <div class="container d-flex justify-content-center rounded-4">
     <%= form_tag(stations_path, method: :get) do %>
@@ -14,28 +17,4 @@
     <% end %>
   </div>
 </div>
-
-<div class="container d-flex justify-content-center">
-  <div class="row justify-content-center" style="row-gap: 1.3rem;">
-    <% if @stations.present? %>
-      <% @stations.each do |station| %>
-        <div class="col-4">
-          <div class="card">
-            <div class="card-img-top bg-secondary" style="height: 200px;">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= station.name %></h5>
-              <p class="card-text"><%= station.intersection %></p>
-              <p class="card-text"><%= station.avg_rating %></p>
-              <%= link_to 'View', station_path(station) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="col-12 mt-4">
-        <p>Sorry, no stations to display!</p>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= link_to "Browse All Stations", stations_path(@station), :class => "btn btn-light rounded-3 mt-3" %></a>

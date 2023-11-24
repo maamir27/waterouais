@@ -8,11 +8,12 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title"><%= station.name %></h5>
-                  <p class="card-text"><strong>Name:</strong><span class="ms-1">$<%= station.name %></span></p>
-                  <%= link_to 'More info', station_path(station) %>
+                  <p class="card-text"><strong>Name:</strong><span class="ms-1"><%= station.name %></span></p>
+                  <p class="card-text"><strong>Address:</strong><span class="ms-1"><%= station.address %></span></p>
+                  <%= link_to 'View', station_path(station) %>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
-      </div>
+   </div></div>

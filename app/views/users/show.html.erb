@@ -7,8 +7,7 @@
     </div>
     <% if @user.score %>
       <div>
-        <strong>Score:</strong>
-        <%= @user.score %>
+        <strong>Score:</strong><%= @user.score.total_score %>
       </div>
     <% end %>
   </div>

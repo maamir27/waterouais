@@ -1,0 +1,12 @@
+<h1>Leaderboard</h1>
+<% if @leaderboard_users.any? %>
+  <ol class="list-group">
+    <% @leaderboard_users.each do |user| %>
+      <li class="list-group-item">
+        <%= user.email %> - <%= user.score.try(:total_score) || "No score available" %>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>No scores available yet.</p>
+<% end %>

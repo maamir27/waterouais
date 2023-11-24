@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   end
 
   def leaderboard
-
+    @leaderboard_users = User.includes(:score)
+    .order('scores.total_score DESC')
+    .limit(10)
   end
 end

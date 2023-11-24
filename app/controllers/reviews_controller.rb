@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
-    if
+    @station = Station.find(params["station_id"].to_i)
   end
 
   def create

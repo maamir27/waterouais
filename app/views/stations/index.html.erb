@@ -1,17 +1,17 @@
-<div class="container d-flex justify-content-center">
+<div class="container d-flex ">
   <h1>Stations</h1>
 </div>
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex">
   <div class="row justify-content-center" style="row-gap: 1.3rem;">
     <% if @stations.present? %>
       <% @stations.each do |station| %>
         <div class="col-4">
           <div class="card">
-            <div class="card-img-top bg-secondary" style="height: 200px;">
+            <div class="card-img-top bg-secondary">
             <div class="card-body">
               <h5 class="card-title"><%= station.name %></h5>
-              <p class="card-text"><%= station.intersection %></p>
+              <p class="card-text"><%= station.address %></p>
               <p class="card-text"><%= station.avg_rating %></p>
               <%= link_to 'View', station_path(station) %>
             </div>

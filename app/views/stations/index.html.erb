@@ -1,19 +1,27 @@
-<h1>Stations</h1>
+<div class="container d-flex justify-content-center">
+  <h1>Stations</h1>
+</div>
 
- <div class="col-9 d-flex flex-wrap">
-      <div class="container">
-        <div class="row justify-content-center", style="row-gap: 1.3rem;">
-          <% @stations.each do |station| %>
-            <div class="col-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title"><%= station.name %></h5>
-                  <p class="card-text"><strong>Name:</strong><span class="ms-1"><%= station.name %></span></p>
-                  <p class="card-text"><strong>Address:</strong><span class="ms-1"><%= station.address %></span></p>
-                  <%= link_to 'View', station_path(station) %>
-                </div>
-              </div>
+<div class="container d-flex justify-content-center">
+  <div class="row justify-content-center" style="row-gap: 1.3rem;">
+    <% if @stations.present? %>
+      <% @stations.each do |station| %>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-img-top bg-secondary" style="height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title"><%= station.name %></h5>
+              <p class="card-text"><%= station.intersection %></p>
+              <p class="card-text"><%= station.avg_rating %></p>
+              <%= link_to 'View', station_path(station) %>
             </div>
-          <% end %>
+          </div>
         </div>
-   </div></div>
+      <% end %>
+    <% else %>
+      <div class="col-12 mt-4">
+        <p>Sorry, no stations to display!</p>
+      </div>
+    <% end %>
+  </div>
+</div>

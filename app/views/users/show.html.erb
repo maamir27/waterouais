@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="text-center">
+    <h1>User Profile</h1>
+    <div>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </div>
+    <% if @user.score %>
+      <div>
+        <strong>Score:</strong>
+        <%= @user.score %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_000334) do
     t.integer "avg_rating"
     t.datetime "last_updated", precision: nil
     t.boolean "status", default: true
-    t.bigint "review_id", null: false
+    t.bigint "review_id", null: true
     t.string "description"
     t.bigint "user_id", null: false
     t.index ["review_id"], name: "index_stations_on_review_id"

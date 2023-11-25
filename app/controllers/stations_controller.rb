@@ -5,7 +5,7 @@ class StationsController < ApplicationController
       {
         lat: s.latitude,
         lng: s.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { station: station })
+        info_window_html: render_to_string(partial: "info_window", locals: { station: s })
       }
     end
   end

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :score
   has_many :stations, dependent: :destroy
   has_many :reviews, through: :stations
+
   after_create :create_score_record
 
 private

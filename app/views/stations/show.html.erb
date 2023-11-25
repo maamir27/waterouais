@@ -1,14 +1,24 @@
-<h1><%= @station.name %></h1>
+<% @station.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 320, width: 375, crop: :fill %>
+<% end %>
 
-<p>Address: <%= @station.address %></p>
+<%# TITLE & INFO %>
+
+<h1><%= @station.name %></h1>
+<div>rating</div>
+
+<p><%= @station.address %></p>
+<p>Description: <%= @station.description %></p>
 <p>Rating: <%= @station.avg_rating %></p>
 
 
-<% @station.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<%# CALL TO ACTIONS %>
 
-
-<%= link_to "Back to Browse", root_path, :class => "btn btn-secondary" %>
-
+<%= link_to "Google Maps", root_path, :class => "btn btn-secondary" %>
 <%= link_to "Check-in", new_station_review_path(@station.id), :class => "btn btn-secondary" %>
+
+<%# REVIEW %>
+<div>
+  <div># of reviews</div>
+  <div>list of reviewer avatars</div>
+</div>

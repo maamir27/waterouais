@@ -1,0 +1,11 @@
+<div>
+  <div><h2><%= station.name %></h2></div>
+  <div>IMG</div>
+
+  <div>
+    <div><p><%= station.address %></p></div>
+    <div><%= station.avg_rating %></div>
+    <div>Last updated: </div>
+    <div> <%= link_to "View", station_path(station), :class => "btn btn-secondary" %> </div>
+  </div>
+</div>

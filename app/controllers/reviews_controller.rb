@@ -10,9 +10,12 @@ class ReviewsController < ApplicationController
     @review.station = @station
     @review.user = current_user
     if @review.save
-      redirect_to station_path(@station)
       current_user.score.increment!(:reviews_submitted, 2)
-      current_user.calculate_total_score
+      if @review.photos.any?
+        current_user.score.increment!(:photos_added, 2)
+      end
+      current_user.score.calculate_total_score
+      redirect_to station_path(@station)
     else
       render :new, status: :unprocessable_entity
     end

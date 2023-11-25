@@ -2,10 +2,12 @@
   <%= cl_image_tag photo.key, height: 320, width: 375, crop: :fill %>
 <% end %>
 
+
+
 <%# TITLE & INFO %>
 
 <h1><%= @station.name %></h1>
-<div>rating</div>
+<div><%= @station.avg_rating %></div>
 
 <p><%= @station.address %></p>
 <p>Description: <%= @station.description %></p>

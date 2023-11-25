@@ -1,6 +1,16 @@
-<h1>Leave a Review</h1>
+<h1>You've checked in!</h1>
+<h2><%= @station.name %></h2>
+<div>You earned 1 🐢 point! </div>
 
+<div>
+  <div>avatar</div>
+  <div>Username</div>
+  <div>Review and you will earn 5 🐢 points! </div>
+</div>
+
+<%# SIMPLE FORM %>
 <%= simple_form_for [@station, @review] do |f| %>
+  <%# MAKE THIS WATER ICONS? %>
   <%= f.input :rating %>
   <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

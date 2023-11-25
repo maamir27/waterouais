@@ -13,14 +13,37 @@
 <p>Description: <%= @station.description %></p>
 <p>Rating: <%= @station.avg_rating %></p>
 
-
 <%# CALL TO ACTIONS %>
 
 <%= link_to "Google Maps", root_path, :class => "btn btn-secondary" %>
-<%= link_to "Check-in", new_station_review_path(@station.id), :class => "btn btn-secondary" %>
-
+<%= link_to "Check-in", new_station_review_path(@station.id), class: "btn btn-secondary", id: "check-in-btn" %>
+                         
 <%# REVIEW %>
 <div>
   <div># of reviews</div>
   <div>list of reviewer avatars</div>
-</div>
+</div>                      
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var checkInBtn = document.getElementById('check-in-btn');
+    checkInBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+
+    fetch('/stations/<%= @station.id %>/check_in', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      }
+    })
+      .then(function(response) {
+        if (response.ok) {
+          window.location.href = '<%= new_station_review_path(@station.id) %>';
+        } else {
+          console.error('You cannot perform this action.');
+        }
+      });
+      checkInBtn.disabled = true;
+    });
+  });
+</script>

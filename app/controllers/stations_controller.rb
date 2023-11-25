@@ -22,12 +22,27 @@ class StationsController < ApplicationController
     @station = Station.new(station_params)
     @station.user = current_user
     if @station.save
-      redirect_to station_path(@station)
       current_user.score.increment!(:stations_created, 5)
-      current_user.calculate_total_score
+      current_user.score.calculate_total_score
+      redirect_to station_path(@station)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def check_in
+    @station = Station.find(params[:id])
+    if current_user
+      session[:checked_in_stations] ||= []
+      unless session[:checked_in_stations].include?(@station.id)
+        current_user.score.increment!(:check_in, 1)
+        current_user.score.calculate_total_score
+        session[:checked_in_stations] << @station.id
+      end
+        head :ok
+      else
+        head :unauthorized
+      end
   end
 
   private

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   end
 
   resources :stations, only: [ :index, :show, :new, :create ] do
+    member do
+      post :check_in
+    end
     resources :reviews, only: [ :new, :create ]
   end
 

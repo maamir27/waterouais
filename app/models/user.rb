@@ -13,11 +13,11 @@ class User < ApplicationRecord
 
   def calculate_total_score
     new_total_score = score.check_in +
-    score.stations_created * 5 +
-    score.reviews_submitted * 2 +
-    score.photos_added * 2
-  score.update(total_score: new_total_score)
-end
+                      (score.stations_created * 5) +
+                      (score.reviews_submitted * 2) +
+                      (score.photos_added * 2)
+    score.update(total_score: new_total_score)
+  end
 
   after_create :create_score_record
   private

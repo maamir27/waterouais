@@ -1,18 +1,20 @@
-<div class="container-fluid justify-content-center">
+<div class="container text-center">
+  <h1>WaterOuais</h1>
+</div>
 
-  <div class="search-bar d-flex">
+<div>
+  <div class="container d-flex justify-content-center" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+ </div>
+
+  <div class="container d-flex justify-content-center rounded-4">
     <%= form_tag(stations_path, method: :get) do %>
-      <%= text_field_tag :location, params[:location], placeholder: "Enter an address...", class: "rounded-4" %>
-      <%= button_tag(type: "submit", class: "btn btn-default") do %>
-        <i class="fa-solid fa-magnifying-glass"></i>
-      <% end %>
+      <%= text_field_tag :location, params[:location], placeholder: "Search for stations" %>
+      <%= submit_tag "Search" %>
     <% end %>
   </div>
-
-  <div class="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
 </div>
+<%= link_to "Browse All Stations", stations_path(@station), :class => "btn btn-light rounded-3 mt-3" %></a>

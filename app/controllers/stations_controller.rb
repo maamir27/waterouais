@@ -4,7 +4,8 @@ class StationsController < ApplicationController
     @markers = @stations.geocoded.map do |s|
       {
         lat: s.latitude,
-        lng: s.longitude
+        lng: s.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { station: station })
       }
     end
   end

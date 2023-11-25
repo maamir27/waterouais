@@ -9,6 +9,30 @@
 <% end %>
 
 
-<%= link_to "Back to Browse", root_path, :class => "btn btn-secondary" %>
+<%= link_to "Back to Browse", root_path, class: "btn btn-secondary" %>
 
-<%= link_to "Check-in", new_station_review_path(@station.id), :class => "btn btn-secondary" %>
+<%= link_to "Check-in", new_station_review_path(@station.id), class: "btn btn-secondary", id: "check-in-btn" %>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var checkInBtn = document.getElementById('check-in-btn');
+    checkInBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+
+    fetch('/stations/<%= @station.id %>/check_in', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      }
+    })
+      .then(function(response) {
+        if (response.ok) {
+          window.location.href = '<%= new_station_review_path(@station.id) %>';
+        } else {
+          console.error('You cannot perform this action.');
+        }
+      });
+      checkInBtn.disabled = true;
+    });
+  });
+</script>

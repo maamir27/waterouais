@@ -34,13 +34,11 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     if current_user
       session[:checked_in_stations] ||= []
-
       unless session[:checked_in_stations].include?(@station.id)
         current_user.score.increment!(:check_in, 1)
         current_user.score.calculate_total_score
         session[:checked_in_stations] << @station.id
       end
-
         head :ok
       else
         head :unauthorized

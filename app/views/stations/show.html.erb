@@ -15,11 +15,11 @@
 
 <%# CALL TO ACTIONS %>
 
-
-<%= link_to "Google Maps", root_path, :class => "btn btn-secondary" %>
+<%# how to route to google map query %>
+<%= link_to "Google Maps", root_path, :class => "btn btn-green" %>
 
 <div data-controller="check-in" data-check-in-id-value="<%= @station.id %>">
-<%= link_to "Check-in", new_station_review_path(@station.id), class: "btn btn-secondary", data: { check_in_target: "button", action: "click->check-in#fire" } %>
+<%= link_to "Check-in", new_station_review_path(@station.id), class: "btn btn-blue", data: { check_in_target: "button", action: "click->check-in#fire" } %>
 </div>
 
 <%# REVIEW %>

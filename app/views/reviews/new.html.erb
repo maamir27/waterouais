@@ -11,8 +11,8 @@
 <%# SIMPLE FORM %>
 <%= simple_form_for [@station, @review] do |f| %>
   <%# MAKE THIS WATER ICONS? %>
-  <%= f.input :rating %>
-  <%= f.input :description %>
+  <%= f.input :rating, collection: 0..5  %>
+  <%= f.input :description, label: 'Comment' %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
 <% end %>

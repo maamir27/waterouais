@@ -16,6 +16,11 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find(params[:id])
+    average_score_array = []
+    @station.reviews.each do |review|
+      average_score_array << review.rating
+    end
+    @station.avg_rating = average_score_array.sum.to_f / average_score_array.length
   end
 
   def create
@@ -42,7 +47,7 @@ class StationsController < ApplicationController
         head :ok
       else
         head :unauthorized
-      end
+    end
   end
 
   private

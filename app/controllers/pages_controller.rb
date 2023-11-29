@@ -14,9 +14,13 @@ class PagesController < ApplicationController
   end
 
   def leaderboard
-    @leaderboard_users = User.includes(:score)
-    .order('scores.total_score DESC')
-    .limit(10)
+    @leaderboard_users = User.select('users.*, scores.total_score, RANK() OVER (ORDER BY scores.total_score DESC)')
+    .joins(:score)
+    .limit(50)
   end
-
 end
+
+#@leaderboard_users = User.includes(:score)
+#.select('users.*, scores.total_score, RANK() OVER (ORDER BY scores.total_score DESC) as rank')
+#.order('scores.total_score DESC')
+#.limit(10)

@@ -31,7 +31,6 @@
                       <%= review.station.name %>
                       <%= review.station.avg_rating %>
                       <%= review.station.description %>
-                      <%= link_to 'View', station_path(station) %>
                     </li>
                   <% end %>
                 </ul>
@@ -41,8 +40,6 @@
                   <% @created_stations.each do |station| %>
                     <li class="list-group-item">
                       <%= station.name %></li>
-                      <%= station.avg_rating %>
-                      <%= station.description %>
                       <%= link_to 'View', station_path(station) %>
                     </li>
                   <% end %>

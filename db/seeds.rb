@@ -12,6 +12,7 @@ require "open-uri"
 img = URI.open("https://imtl.org/image/big/1_MG_0539.jpg")
 
 user = User.create!({
+    username: 'maamir',
     email: 'water@waterouais.com',
     password: 'waterisw3t',
     password_confirmation: 'waterisw3t'

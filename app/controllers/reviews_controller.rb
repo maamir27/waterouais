@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @station = Station.find(params["station_id"].to_i)
+    @user = current_user
   end
 
   def create
@@ -30,6 +31,6 @@ class ReviewsController < ApplicationController
   private
 
   def reviews_params
-    params.require(:review).permit(:rating, :description, photos: [])
+    params.require(:review).permit(:username, :rating, :description, photos: [])
   end
 end

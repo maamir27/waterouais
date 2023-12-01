@@ -3,7 +3,7 @@
   <ol class="list-group">
     <% @leaderboard_users.each do |user| %>
       <li class="list-group-item">
-      <%= user.rank %> - <%= user.username %> - <%= user.email %> - <%= user.score.try(:total_score) || "No score available" %>
+      <%= user.rank %> - <%= user.email %> - <%= user.score.try(:total_score) || "No score available" %>
       </li>
     <% end %>
   </ol>

@@ -7,50 +7,51 @@
           <h2 class="card-title"><%= @user.username %></h2>
 
           <div class="card-body text-center">
-          <% if @user_rank && @user_rank <= 50 %>
-          <div class="badge badge-primary mb-4">
-             Rank: <%= @user_rank %>
-          </div>
-          <div class="badge badge-secondary mb-4">
-           <%= @user.score.total_score %> points
-          </div>
-          <% else %>
-          <div class="badge badge-primary mb-4">
-           <%= @user.score.total_score %> points
-          </div>
-         <% end %>
+            <% if @user_rank && @user_rank <= 50 %>
+              <div class="badge bg-primary mb-4">Rank: <%= @user_rank %></div>
+              <div class="badge bg-secondary mb-4"><%= @user.score.total_score %> points</div>
+            <% else %>
+              <div class="badge bg-primary mb-4"><%= @user.score.total_score %> points</div>
+            <% end %>
 
-          <ul class="nav nav-tabs justify-content-center" id="profileTab" role="tablist" style="flex-wrap: nowrap; overflow-x: auto;">
-            <li class="nav-item" style="display: inline-block;">
-              <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Recent Reviews</a>
-            </li>
-            <li class="nav-item" style="display: inline-block;">
-              <a class="nav-link" id="stations-tab" data-toggle="tab" href="#stations" role="tab" aria-controls="stations" aria-selected="false">Created Stations</a>
-            </li>
-          </ul>
+            <ul class="nav nav-tabs justify-content-center" id="profileTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Recent Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="stations-tab" data-bs-toggle="tab" href="#stations" role="tab" aria-controls="stations" aria-selected="false">Created Stations</a>
+              </li>
+            </ul>
 
-          <div class="tab-content" id="profileTabContent">
-            <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-              <ul class="list-group list-group-flush">
-                <% @reviews_submitted.each do |review| %>
-                  <li class="list-group-item">
-                    <%= review.station.name %>
-                    <%= review.station.avg_rating %>
-                    <%= review.station.description %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="tab-pane fade" id="stations" role="tabpanel" aria-labelledby="stations-tab">
-              <ul class="list-group list-group-flush">
-                <% @created_stations.each do |station| %>
-                  <li class="list-group-item">
-                    <%= station.name %>
+            <div class="tab-content" id="profileTabContent">
+              <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                <ul class="list-group list-group-flush">
+                  <% @reviews_submitted.each do |review| %>
+                    <li class="list-group-item">
+                      <%= review.station.name %>
+                      <%= review.station.avg_rating %>
+                      <%= review.station.description %>
+                      <%= link_to 'View', station_path(station) %>
+                    </li>
                   <% end %>
-                 </div>
+                </ul>
+              </div>
+              <div class="tab-pane fade" id="stations" role="tabpanel" aria-labelledby="stations-tab">
+                <ul class="list-group list-group-flush">
+                  <% @created_stations.each do |station| %>
+                    <li class="list-group-item">
+                      <%= station.name %></li>
+                      <%= station.avg_rating %>
+                      <%= station.description %>
+                      <%= link_to 'View', station_path(station) %>
+                    </li>
+                  <% end %>
+                </ul>
               </div>
             </div>
-         </div>
+          </div>
+        </div>
       </div>
-   </div>
- </div>
+    </div>
+  </div>
+</div>

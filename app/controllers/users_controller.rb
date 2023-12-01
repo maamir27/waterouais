@@ -3,14 +3,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
     @user_rank = User.joins(:score)
-    .where('scores.total_score > ?', @user.score.total_score)
-    .count + 1
-
+      .where('scores.total_score > ?', @user.score.total_score)
+      .count + 1
     @reviews_submitted = @user.reviews
-
     @created_stations = @user.stations
+  end
+
+  def index
+
   end
 
   private

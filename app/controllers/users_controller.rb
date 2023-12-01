@@ -10,10 +10,6 @@ class UsersController < ApplicationController
     @created_stations = @user.stations
   end
 
-  def index
-
-  end
-
   private
 
   def set_user

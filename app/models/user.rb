@@ -18,8 +18,6 @@ class User < ApplicationRecord
 
   private
 
-  # def self.find_for_database_authentication()
-
   def create_score_record
     create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 0)
   end

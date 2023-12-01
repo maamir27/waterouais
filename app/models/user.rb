@@ -5,14 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
 
   has_one :score
   has_many :stations, dependent: :destroy
-  has_many :reviews, through: :stations
+  has_many :reviews, through: :stations, dependent: :destroy
   after_create :create_score_record
 
-private
+  def login
+    @login || username || email
+  end
+
+  private
 
   def create_score_record
     create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 0)

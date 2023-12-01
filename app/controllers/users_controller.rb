@@ -8,6 +8,10 @@ class UsersController < ApplicationController
       .count + 1
     @reviews_submitted = @user.reviews
     @created_stations = @user.stations
+
+
+  Rails.logger.debug "Reviews Submitted: #{@reviews_submitted}"
+  Rails.logger.debug "Created Stations: #{@created_stations}"
   end
 
   private

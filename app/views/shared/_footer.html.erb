@@ -12,7 +12,7 @@
   <% end %>
 
   <% if current_user %>
-    <%= link_to users_path do %>
+    <%= link_to user_path(current_user[:id]) do %>
       <i class="fa-solid fa-user"></i>
     <% end %>
   <% else %>

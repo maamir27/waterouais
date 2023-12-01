@@ -23,6 +23,10 @@ $lightgray: #B3B3B3;
   padding: 0;
 }
 
+.container {
+  padding: 0;
+}
+
 // .search-bar {
 //   position: absolute;
 //   z-index: 999;
@@ -70,4 +74,9 @@ body {
   font-size: 12px;
   font-weight: 300;
   // overflow: hidden;
+}
+
+.w-100 {
+  height: 320px;
+  object-fit: cover;
 }

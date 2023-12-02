@@ -96,3 +96,21 @@ body {
   height: 320px;
   object-fit: cover;
 }
+
+.page-headers {
+  font-family: $headerfont;
+  font-weight: bold;
+  color: $darkblue;
+}
+
+.blue-text {
+  font-family: $bodyfont;
+  font-weight: bold;
+  color: $darkblue;
+}
+
+.station-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: black
+}

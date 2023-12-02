@@ -4,6 +4,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.label :avatar %>
+    <%= f.input :avatar, as: :file %>
+
     <%= f.input :username,
                 required: true,
                 autofocus: true,

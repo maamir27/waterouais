@@ -1,25 +1,25 @@
 <div class="container-fluid justify-content-center">
 
-  <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
 
-      <%= @station.photos.each_with_index do |photo, index| %>
-        <div id="carousel_item_<%= index %>" class="carousel-item <%= index == 0 ? 'active' : '' %>">
-          <%= cl_image_tag photo.key, class:"d-block w-100" %>
-        </div>
-      <% end %>
+        <%= @station.photos.each_with_index do |photo, index| %>
+          <div id="carousel_item_<%= index %>" class="carousel-item <%= index == 0 ? 'active' : '' %>">
+            <%= cl_image_tag photo.key, class:"d-block w-100" %>
+          </div>
+        <% end %>
 
-    </div>
+      </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
 
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
 
   </div>
 

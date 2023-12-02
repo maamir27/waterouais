@@ -6,7 +6,7 @@
 
         <%= @station.photos.each_with_index do |photo, index| %>
           <div id="carousel_item_<%= index %>" class="carousel-item <%= index == 0 ? 'active' : '' %>">
-            <img src="<%= cl_image_tag photo.key %>" class="d-block w-100" alt="...">
+            <%= cl_image_tag photo.key, class:"d-block w-100" %>
           </div>
         <% end %>
 

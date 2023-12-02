@@ -15,6 +15,8 @@
 $headerfont: 'Fredoka', sans-serif;
 $bodyfont: 'Montserrat', sans-serif;
 $lightgray: #B3B3B3;
+$darkblue: #0A4374;
+$darkgreen: #2F8968;
 
 // CSS
 
@@ -25,6 +27,8 @@ $lightgray: #B3B3B3;
 
 .container {
   padding: 0;
+  overflow: scroll;
+  width: 100vw;
 }
 
 // .search-bar {

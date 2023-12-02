@@ -1,30 +1,33 @@
-<div class="container">
+<div class="container vh-100">
   <div class="row justify-content-center align-items-center">
     <div class="col-12 col-md-8 col-lg-6">
       <div class="card">
         <div class="card-body text-center">
+          <h1 class="page-headers mt-4">User Profile</h1>
+        
             <% if current_user.avatar.attached? %>
               <%= cl_image_tag(current_user.avatar.key, :width=>50, :height=>50, :crop=>"scale", :radius=>50) %>
             <% else %>
               <img src='<%= current_user.default_avatar %>'>
             <% end %>
 
-          <h2 class="card-title"><%= @user.username %></h2>
+          <h2 class="card-title blue-text"><%= @user.username %></h2>
 
           <div class="card-body text-center">
-            <% if @user_rank && @user_rank <= 50 %>
-              <div class="badge bg-primary mb-4">Rank: <%= @user_rank %></div>
-              <div class="badge bg-secondary mb-4"><%= @user.score.total_score %> points</div>
-            <% else %>
-              <div class="badge bg-primary mb-4"><%= @user.score.total_score %> points</div>
+          <div class="d-flex justify-content-center align-items-center mb-4">
+            <% if @user_rank && @user_rank <= 100 %>
+              <div class="blue-text">#<%= @user_rank %></div>
+              <div class="mx-2">-</div>
             <% end %>
+            <div class="fw-bold me-1"><%= @user.score.total_score %></div> points
+          </div>
 
             <ul class="nav nav-tabs justify-content-center" id="profileTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Recent Reviews</a>
+                <a class="nav-link active blue-text" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Recent Reviews</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="stations-tab" data-bs-toggle="tab" href="#stations" role="tab" aria-controls="stations" aria-selected="false">Created Stations</a>
+                <a class="nav-link blue-text" id="stations-tab" data-bs-toggle="tab" href="#stations" role="tab" aria-controls="stations" aria-selected="false">Created Stations</a>
               </li>
             </ul>
 
@@ -33,9 +36,19 @@
                 <ul class="list-group list-group-flush">
                   <% @reviews_submitted.each do |review| %>
                     <li class="list-group-item">
-                      <%= review.station.name %>
-                      <%= review.station.avg_rating %>
-                      <%= review.station.description %>
+                      <div class="d-flex">
+                         <% if review.station.photos.any? %>
+                          <div class="me-3">
+                            <%= cl_image_tag(review.station.photos.first.key, class: "rounded-circle", width: 40, height: 40) %>
+                          </div>
+                        <% end %>
+
+                        <div class="flex-column">
+                          <%= link_to review.station.name, station_path(review.station), class: "station-link" %>
+                          <div><%= review.station.avg_rating %></div>
+                          <div><%= review.station.description %></div>
+                        </div>
+                      </div>
                     </li>
                   <% end %>
                 </ul>
@@ -44,9 +57,20 @@
                 <ul class="list-group list-group-flush">
                   <% @created_stations.each do |station| %>
                     <li class="list-group-item">
-                      <%= station.name %></li>
-                      <%= link_to 'View', station_path(station) %>
-                    </li>
+                     <div class="d-flex">
+                        <% if station.photos.any? %>
+                          <div class="me-3">
+                            <%= cl_image_tag(station.photos.first.key, class: "rounded-circle", width: 40, height: 40) %>
+                          </div>
+                        <% end %>
+
+                        <div class="flex-column">
+                          <%= link_to station.name, station_path(station), class: "station-link" %>
+                          <div><%= station.avg_rating %></div>
+                          <div><%= station.description %></div>
+                        </div>
+                       </div>
+                     </li>
                   <% end %>
                 </ul>
               </div>
@@ -54,11 +78,8 @@
           </div>
         </div>
       </div>
-   </div>
- </div>
-
- <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete} %>
- <%= link_to "Edit Account", edit_user_registration_path %>
     </div>
-  </div>
+    <%= link_to "Logout", destroy_user_session_path, class: " btn btn-blue", data: {turbo_method: :delete} %>
+    <%= link_to "Edit Account", edit_user_registration_path %>
+ </div>
 </div>

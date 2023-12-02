@@ -4,12 +4,13 @@
       <div class="card">
         <div class="card-body text-center">
           <h1 class="page-headers mt-4">User Profile</h1>
-        
             <% if current_user.avatar.attached? %>
-              <%= cl_image_tag(current_user.avatar.key, :width=>50, :height=>50, :crop=>"scale", :radius=>50) %>
-            <% else %>
+                <div>
+                  <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle", width: 50, height: 50) %>
+                  <% else %>
               <img src='<%= current_user.default_avatar %>'>
-            <% end %>
+                </div>
+                <% end %>
 
           <h2 class="card-title blue-text"><%= @user.username %></h2>
 
@@ -77,9 +78,12 @@
             </div>
           </div>
         </div>
+
+         <div class="text-center">
+          <%= link_to "Logout", destroy_user_session_path, class: "btn btn-blue", data: { turbo_method: :delete } %>
+          <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-green" %>
+        </div>
       </div>
     </div>
-    <%= link_to "Logout", destroy_user_session_path, class: " btn btn-blue", data: {turbo_method: :delete} %>
-    <%= link_to "Edit Account", edit_user_registration_path %>
  </div>
 </div>

@@ -1,6 +1,5 @@
-<div class="container justify-content-center">
+<div class="container-fluid justify-content-center">
 
-  <div class= "row justify-content-center" style="margin: auto;">
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
 
@@ -22,29 +21,82 @@
         <span class="visually-hidden">Next</span>
       </button>
 
+  </div>
+
+  <div class="station-heading d-flex px-3 pb-2 pt-2" style="flex-direction: column;">
+    <h1><%= @station.name %></h1>
+
+    <div class="star-rating">
+      <% if @station.avg_rating.nan? %>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+      <% elsif @station.avg_rating % 1 == 0 %>
+        <% for a in (1..@station.avg_rating) do %>
+          <i class="fa-solid fa-star"></i>
+        <% end %>
+      <% elsif @station.avg_rating % 1 != 0 %>
+        <% @station.avg_rating.floor().to_i %>
+        <% @rest_of_stars = (5 - @station.avg_rating.floor().to_i) %>
+
+        <% for a in (1..@station.avg_rating) do %>
+          <i class="fa-solid fa-star"></i>
+        <% end %>
+
+        <% for a in (1..@rest_of_stars) do %>
+          <i class="fa-solid fa-star-half-stroke"></i>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
-  <div class="row ms-2 mt-2">
-    <h1><%= @station.name %></h1>
-    <p>Average rating: <%= @station.avg_rating %></p>
-    <p><%= @station.address %></p>
-    <p>Description: <%= @station.description %></p>
+  <div class="station-info d-flex px-3 pb-1" style="flex-direction: column;">
+    <%= @station.address %>
+    <p style="font-size:12px; margin-top:4px;">Directions: <%= @station.description %></p>
   </div>
 
-  <div class="row justify-content-center">
-    <%= link_to "Google Maps", root_path, :class => "btn btn-green" %>
-    <div class="row justify-content-center" id="check-in-btn" data-controller="check-in" data-check-in-id-value="<%= @station.id %>">
+  <div class="station-btns">
+    <div class="d-flex justify-content-center">
+      <%= link_to "Google Maps", "http://maps.google.com/?q=#{@station.address}", :class => "btn btn-green" %>
+    </div>
+    <div class="d-flex justify-content-center" id="check-in-btn" data-controller="check-in" data-check-in-id-value="<%= @station.id %>">
       <%= link_to "Check-in", new_station_review_path(@station.id), class: "btn btn-blue", data: { check_in_target: "button", action: "click->check-in#fire" } %>
     </div>
   </div>
 
-  <div class="row ms-2">
-    Reviews head
+  <div class="reviews-heading d-flex p-3">
+    <div class="reviews-number">
+      <h4><%= @station.reviews.length %> reviews</h4>
+    </div>
+
+    <div class="reviews-user-avatars">
+    </div>
   </div>
 
-  <div class="row ms-2">
-    Reviews body
-  </div>
+  <div class="reviews-body d-flex" style="flex-direction: column">
+    <% @station.reviews.each do |review| %>
+      <div class="review-card d-flex p-4" style="flex-direction: row;">
+        <div class="review-user-avatar">
+        </div>
 
+        <div class="review-body">
+          <h6><%= review.user.id %> - <%= review.created_at %></h6>
+          <% for a in (1..review.rating) do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+          <p><%= review.description %></p>
+        </div>
+
+        <div class="review-photos d-flex" style="flex-direction:column-reverse; margin-left:auto;">
+          <% review.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class:"review-photo", style:"width:32px; height:32px; object-fit: cover; border-radius:8px;" %>
+          <% end %>
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
 </div>

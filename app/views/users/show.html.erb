@@ -3,11 +3,11 @@
     <div class="col-12 col-md-8 col-lg-6">
       <div class="card">
         <div class="card-body text-center">
-          <% if current_user.avatar.attached? %>
-            <%= cl_image_tag(current_user.avatar.key, :width=>50, :height=>50, :crop=>"scale", :radius=>50) %>
-          <% else %>
-            <%= image_tag("/app/assets/images/default_user.jpg", :size=> "50x50") %>
-          <% end %>
+            <% if current_user.avatar.attached? %>
+              <%= cl_image_tag(current_user.avatar.key, :width=>50, :height=>50, :crop=>"scale", :radius=>50) %>
+            <% else %>
+              <img src='<%= current_user.default_avatar %>'>
+            <% end %>
 
           <h2 class="card-title"><%= @user.username %></h2>
 

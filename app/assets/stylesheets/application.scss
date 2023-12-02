@@ -15,16 +15,24 @@
 $headerfont: 'Fredoka', sans-serif;
 $bodyfont: 'Montserrat', sans-serif;
 $lightgray: #B3B3B3;
+$darkblue: #0A4374;
+$darkgreen: #2F8968;
+$lightblue: #14BBB1;
 
 // CSS
 
-
 .container-fluid {
   padding: 0;
+  overflow: scroll;
+  width: 100vw;
+  margin-bottom: 42px;
 }
 
 .container {
   padding: 0;
+  overflow: scroll;
+  width: 100vw;
+  margin-bottom: 42px;
 }
 
 // .search-bar {
@@ -69,9 +77,17 @@ h1 {
   font-family: $headerfont;
 }
 
+h4 {
+  font-family: $headerfont;
+}
+
+h6 {
+  font-family: $headerfont;
+}
+
 body {
   font-family: $bodyfont;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
   // overflow: hidden;
 }

@@ -8,12 +8,28 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_one :score
+  has_one_attached :avatar
   has_many :stations, dependent: :destroy
   has_many :reviews, through: :stations, dependent: :destroy
   after_create :create_score_record
+  after_commit :default_avatar, on: %i[create]
 
   def login
     @login || username || email
+  end
+
+  def default_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'default_user.jpg'
+          )
+        ),
+        filename: 'default_user.jpg',
+        content_type: 'image/jpg'
+      )
+    end
   end
 
   private
@@ -21,4 +37,5 @@ class User < ApplicationRecord
   def create_score_record
     create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 0)
   end
+
 end

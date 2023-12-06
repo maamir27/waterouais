@@ -10,6 +10,7 @@
 require "open-uri"
 
 img = URI.open("https://imtl.org/image/big/1_MG_0539.jpg")
+img2 = URI.open("https://westmount.org/wp-content/uploads/2020/07/waterdispenser-800x445.jpg")
 
 user = User.create!({
     username: 'maamir',
@@ -24,5 +25,15 @@ station = Station.create!({
   description: 'Turn left at the turnstiles',
   user: user
 });
+
+westmount = Station.create!({
+  name: 'Westmount Park',
+  address: '327 Av. Melville, Westmount, Quebec',
+  description: 'Really cool handsfree automatic water dispenser!',
+  user: user
+})
+
 station.photos.attach(io: img, filename: "station.jpg", content_type: "image/jpg")
 station.save
+westmount.photos.attach(io: img2, filename: "westmount.jpg", content_type: "image/jpg")
+westmount.save

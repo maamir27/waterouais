@@ -114,3 +114,49 @@ body {
   text-decoration: none;
   color: black
 }
+
+// leaderboard colours
+
+.leaderboard-users {
+  font-family: $bodyfont;
+  color:#0A4374;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.boxes {
+  background-color: white;
+  border: 0cm;
+}
+.points {
+  font-family: $bodyfont;
+  font-size: 16px;
+  font-weight: bold;
+}
+.first {
+  color: #FF9090;
+  font-family: $bodyfont;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.second {
+  color: #2F8968;
+  font-family: $bodyfont;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.third {
+  color: #7B9FF2;
+  font-family: $bodyfont;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.other {
+  color: black;
+  font-family: $bodyfont;
+  font-size: 24px;
+}

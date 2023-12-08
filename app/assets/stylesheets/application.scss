@@ -10,6 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/button";
 
 // Variables
 $headerfont: 'Fredoka', sans-serif;
@@ -20,6 +21,10 @@ $darkgreen: #2F8968;
 $lightblue: #14BBB1;
 
 // CSS
+
+.geo-link{
+  color: $lightblue;
+}
 
 .container-fluid {
   padding: 0;
@@ -101,6 +106,7 @@ body {
   font-family: $headerfont;
   font-weight: bold;
   color: $darkblue;
+  font-size: 36px;
 }
 
 .blue-text {
@@ -159,4 +165,13 @@ body {
   color: black;
   font-family: $bodyfont;
   font-size: 24px;
+
+  .review-user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+.mapboxgl-popup {
+  max-width: 300px;
 }

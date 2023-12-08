@@ -1,4 +1,4 @@
-<div class="container-fluid justify-content-center">
+<div class="container-fluid">
 
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
@@ -78,18 +78,19 @@
   <div class="reviews-body d-flex" style="flex-direction: column">
     <% @station.reviews.each do |review| %>
       <div class="review-card d-flex p-4" style="flex-direction: row;">
-        <div class="review-user-avatar">
+        <div class="review-user-avatar mt-3">
+          <%= cl_image_tag review.user.avatar.key, style:"width:32px; height:32px; object-fit: cover; border-radius:50%;" %>
         </div>
 
-        <div class="review-body">
-          <h6><%= review.user.id %> - <%= review.created_at %></h6>
+        <div class="review-body ms-3">
+          <h6><%= review.user.email %> - <%= review.created_at %></h6>
           <% for a in (1..review.rating) do %>
             <i class="fa-solid fa-star"></i>
           <% end %>
           <p><%= review.description %></p>
         </div>
 
-        <div class="review-photos d-flex" style="flex-direction:column-reverse; margin-left:auto;">
+        <div class="review-photos d-flex" style="flex-direction:row-reverse; margin-left:auto; margin-top:auto; gap:4px;">
           <% review.photos.each do |photo| %>
             <%= cl_image_tag photo.key, class:"review-photo", style:"width:32px; height:32px; object-fit: cover; border-radius:8px;" %>
           <% end %>

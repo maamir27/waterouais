@@ -1,14 +1,20 @@
-<div>
+
+<%# <%= time_ago_in_words(Time.now - station.updated_at) %>
+<div style="height:160px; width: 280px">
   <div><h2><%= station.name %></h2></div>
-
-  <% station.photos.each do |p| %>
-    <%= (cl_image_tag p.key, :width => 86, :height => 86 ) %>
-  <% end %>
-
-  <div>
-    <div><p><%= station.address %></p></div>
-    <div><%= station.avg_rating %></div>
-    <div>Last updated: <%= time_ago_in_words(Time.now - station.updated_at) %> </div>
-    <div> <%= link_to "View", station_path(station), :class => "btn btn-secondary" %> </div>
+  <div class="d-flex flex-row">
+    <div class="p-2">
+        <% station.photos.each do |p| %>
+          <%= (cl_image_tag p.key, :width => 86, :height => 86 ) %>
+        <% end %>
+    </div>
+    <div class="p-2">
+      <div class="d-flex flex-column mb-3">
+        <div><p><%= station.address %></p></div>
+        <div><%= station.avg_rating %></div>
+        <div>Last updated:</div>
+        <div><%= link_to "View", station_path(station), :class => "btn btn-secondary" %></div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,8 +1,44 @@
-<h1>Create a Station</h1>
- <%= simple_form_for(@station) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container" style="margin-top: 64px;">
+  <div class="row p-3" style="margin: auto;">
+    <div class="col align-items-center">
+      <h1 class="page-headers text-center" style="font-size:36px;">Create a Station</h1>
+
+      <div class="user-info-points d-flex mt-3" style="justify-content: space-around;">
+        <div class="user-avatar">
+          <%= cl_image_tag current_user.avatar.key, style:"width:48px; height:48px; object-fit: cover; border-radius:50%;" %>
+        </div>
+
+        <div class="user-points-info">
+          <h6><%= current_user.username%></h6>
+          <p>Create and you will earn 5 points!</p>
+        </div>
+      </div>
+
+      <div class="stations-new-form mt-3">
+        <%= simple_form_for(@station) do |f| %>
+          <%= f.input :name, label: false, placeholder: 'Name' %>
+          <%= f.input :description, label: false, placeholder: 'Special directions' %>
+          <%= f.input :address, label: false, placeholder: 'Address (autocomplete)' %>
+          <div class="d-flex geo-link" style="font-weight: bold; font-size: 20px; font-family: 'Fredoka';">
+            <%= link_to "https://google.com" do %>
+              <i class="fa-solid fa-location-crosshairs"></i> Use Geolocator
+            <% end %>
+          </div>
+
+          <div class="d-flex justify-content-center mt-2">
+            <label class="btn-blue text-center mx-0">
+            Attach photos
+            <span style="display:none;">
+              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            </span>
+            </label>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <%= f.button :submit, class: "btn-green", style:"margin:auto;" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

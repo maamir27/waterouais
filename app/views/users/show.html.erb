@@ -6,7 +6,7 @@
           <h1 class="page-headers mt-4">User Profile</h1>
             <% if current_user.avatar.attached? %>
                 <div>
-                  <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle", width: 50, height: 50) %>
+                  <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle", width: 64, height: 64) %>
                   <% else %>
               <img src='<%= current_user.default_avatar %>'>
                 </div>

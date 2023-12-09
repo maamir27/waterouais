@@ -140,30 +140,31 @@ body {
   font-size: 16px;
   font-weight: bold;
 }
+
 .first {
   color: #FF9090;
-  font-family: $bodyfont;
+  font-family: $headerfont;
   font-size: 36px;
   font-weight: bold;
 }
 
 .second {
   color: #2F8968;
-  font-family: $bodyfont;
+  font-family: $headerfont;
   font-size: 32px;
   font-weight: bold;
 }
 
 .third {
   color: #7B9FF2;
-  font-family: $bodyfont;
+  font-family: $headerfont;
   font-size: 28px;
   font-weight: bold;
 }
 
 .other {
   color: black;
-  font-family: $bodyfont;
+  font-family: $headerfont;
   font-size: 24px;
 }
 

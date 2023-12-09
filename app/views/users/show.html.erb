@@ -47,7 +47,6 @@
                         <div class="flex-column">
                           <%= link_to review.station.name, station_path(review.station), class: "station-link" %>
                           <div><%= review.station.avg_rating %></div>
-                          <div><%= review.station.description %></div>
                         </div>
                       </div>
                     </li>
@@ -68,7 +67,6 @@
                         <div class="flex-column">
                           <%= link_to station.name, station_path(station), class: "station-link" %>
                           <div><%= station.avg_rating %></div>
-                          <div><%= station.description %></div>
                         </div>
                        </div>
                      </li>

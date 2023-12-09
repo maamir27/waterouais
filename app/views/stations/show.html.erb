@@ -83,7 +83,7 @@
         </div>
 
         <div class="review-body ms-3">
-          <h6><%= review.user.email %> - <%= review.created_at %></h6>
+          <h6><%= review.user.username %> - <%= review.created_at.strftime("%d-%m-%Y") %></h6>
           <% for a in (1..review.rating) do %>
             <i class="fa-solid fa-star"></i>
           <% end %>

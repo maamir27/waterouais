@@ -1,87 +1,117 @@
-<div class="container vh-100">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-12 col-md-8 col-lg-6">
-      <div class="card">
-        <div class="card-body text-center">
-          <h1 class="page-headers mt-4">User Profile</h1>
-            <% if current_user.avatar.attached? %>
-                <div>
-                  <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle", width: 64, height: 64) %>
-                  <% else %>
-              <img src='<%= current_user.default_avatar %>'>
+<div class="container" style="margin-top: 64px;">
+  <div class="row p-3 justify-content-center" style="margin: auto;">
+    <div class="col align-items-center">
+      <h1 class="page-headers text-center mt-2" style="font-size:36px;">User Profile</h1>
+
+      <!--User header-->
+      <div class="d-flex justify-content-center">
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle", width: 64, height: 64) %>
+        <% else %>
+          <img src='<%= current_user.default_avatar %>'>
+        <% end %>
+      </div>
+
+      <h5 class="text-center blue-text mt-2"><%= current_user.username%></h5>
+
+      <div class="user-ranking d-flex mx-4 align-items-center justify-content-center">
+        <h3 class="blue-text mt-1">#<%= @user_rank %> - </h3>
+        <h6 class="ms-3 mt-1"><%= @user.score.total_score %> 🐢 points</h6>
+      </div>
+
+      <!--Tabs-->
+      <ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active blue-text" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="font-size:17px;">Recent reviews</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link blue-text" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="font-size:17px;">Created stations</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <!--Reviews tab-->
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <% @user.reviews.each do |review| %>
+            <div class="user-review d-flex p-3" style="align-items:center;">
+              <% if review.station.photos.any? %>
+                <div class="me-3">
+                  <%= cl_image_tag(review.station.photos.first.key, class: "rounded-circle", width: 44, height: 44) %>
                 </div>
-                <% end %>
-
-          <h2 class="card-title blue-text"><%= @user.username %></h2>
-
-          <div class="card-body text-center">
-          <div class="d-flex justify-content-center align-items-center mb-4">
-            <% if @user_rank && @user_rank <= 100 %>
-              <div class="blue-text">#<%= @user_rank %></div>
-              <div class="mx-2">-</div>
-            <% end %>
-            <div class="fw-bold me-1"><%= @user.score.total_score %></div> points
-          </div>
-
-            <ul class="nav nav-tabs justify-content-center" id="profileTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active blue-text" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Recent Reviews</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link blue-text" id="stations-tab" data-bs-toggle="tab" href="#stations" role="tab" aria-controls="stations" aria-selected="false">Created Stations</a>
-              </li>
-            </ul>
-
-            <div class="tab-content" id="profileTabContent">
-              <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                <ul class="list-group list-group-flush">
-                  <% @reviews_submitted.each do |review| %>
-                    <li class="list-group-item">
-                      <div class="d-flex">
-                         <% if review.station.photos.any? %>
-                          <div class="me-3">
-                            <%= cl_image_tag(review.station.photos.first.key, class: "rounded-circle", width: 40, height: 40) %>
-                          </div>
-                        <% end %>
-
-                        <div class="flex-column">
-                          <%= link_to review.station.name, station_path(review.station), class: "station-link" %>
-                          <div><%= review.station.avg_rating %></div>
-                        </div>
-                      </div>
-                    </li>
+              <% end %>
+              <div class="review-content d-flex ms-2" style="justify-content:center;flex-direction: column; row-gap:4px;">
+                <h6 class="mb-0">
+                  <%= link_to station_path(review.station) do %>
+                    <%= review.station.name %>
+                  <% end %></h6>
+                <div class="star-rating">
+                  <% for a in (1..review.rating) do %>
+                    <i class="fa-solid fa-star"></i>
                   <% end %>
-                </ul>
-              </div>
-              <div class="tab-pane fade" id="stations" role="tabpanel" aria-labelledby="stations-tab">
-                <ul class="list-group list-group-flush">
-                  <% @created_stations.each do |station| %>
-                    <li class="list-group-item">
-                     <div class="d-flex">
-                        <% if station.photos.any? %>
-                          <div class="me-3">
-                            <%= cl_image_tag(station.photos.first.key, class: "rounded-circle", width: 40, height: 40) %>
-                          </div>
-                        <% end %>
-
-                        <div class="flex-column">
-                          <%= link_to station.name, station_path(station), class: "station-link" %>
-                          <div><%= station.avg_rating %></div>
-                        </div>
-                       </div>
-                     </li>
-                  <% end %>
-                </ul>
+                </div>
+                <p class="mb-0"><%= review.description %></p>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
+        <!--End Reviews tab-->
 
-         <div class="text-center">
+        <div class="tab-content" id="myTabContent">
+          <!--Stations tab-->
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <% @user.stations.each do |station| %>
+              <div class="station-info d-flex p-3" style="align-items:center;">
+                <% if station.photos.any? %>
+                  <div class="me-3">
+                    <%= cl_image_tag(station.photos.first.key, class: "rounded-circle", width: 44, height: 44) %>
+                  </div>
+                <% end %>
+                <div class="station-info-content d-flex ms-2" style="justify-content:center;flex-direction: column; row-gap:4px;">
+                  <h6 class="mb-0">
+                  <%= link_to station_path(station) do %>
+                    <%= station.name %>
+                  <% end %></h6>
+                  <div class="star-rating">
+                    <% if station.avg_rating.nan? %>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    <% elsif station.avg_rating % 1 == 0 %>
+                      <% for a in (1..station.avg_rating) do %>
+                        <i class="fa-solid fa-star"></i>
+                      <% end %>
+                    <% elsif station.avg_rating % 1 != 0 %>
+                      <% station.avg_rating.floor().to_i %>
+                      <% @rest_of_stars = (5 - station.avg_rating.floor().to_i) %>
+
+                      <% for a in (1..station.avg_rating) do %>
+                        <i class="fa-solid fa-star"></i>
+                      <% end %>
+
+                      <% for a in (1..@rest_of_stars) do %>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <!--End Stations tab-->
+        </div>
+      </div>
+
+      <div class="station-btns mt-3">
+        <div class="d-flex justify-content-center">
           <%= link_to "Logout", destroy_user_session_path, class: "btn btn-blue", data: { turbo_method: :delete } %>
+        </div>
+        <div class="d-flex justify-content-center">
           <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-green" %>
         </div>
       </div>
+
     </div>
- </div>
+  </div>
 </div>

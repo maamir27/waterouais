@@ -114,7 +114,7 @@ body {
 }
 
 .blue-text {
-  font-family: $bodyfont;
+  font-family: $headerfont;
   font-weight: bold;
   color: $darkblue;
 }
@@ -171,7 +171,7 @@ body {
   font-size: 24px;
 }
 
-  .review-user-avatar {
+.review-user-avatar {
   width: 32px;
   height: 32px;
   object-fit: cover;
@@ -184,4 +184,26 @@ body {
 .btn-blue:hover {
   background-color: #6091bb;
   cursor: pointer;
+}
+
+.tab-content > .active {
+  background: #FFFFFF;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border:#FFFFFF;
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: none;
+  --bs-nav-tabs-border-color: none;
+}
+
+a {
+  text-decoration: none !important;
 }

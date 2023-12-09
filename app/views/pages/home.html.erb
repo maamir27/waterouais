@@ -1,28 +1,11 @@
-<div style="position: fixed; float: left; z-index: 1000; padding-top: 10px; padding-left: 3px; filter: drop-shadow(1px 1px 1px grey);">
-  <%= image_tag("https://i.postimg.cc/s2892Y9T/m-zzm-simple-elegant-2-dimensional-emoji-turtle-from-the-side-o-808cb97a-18ee-46b4-b6f1-67e492b8cd79.jpg",
-        width: 48, height: 48, crop: :fill, gravity: :auto,
-        radius: "max",
-        alt: "logo",
-        style: "border-radius: 50%;") %>
-</div>
-
-<div class="container-fluid justify-content-center">
-
-<!--
-  <div class="search-bar d-flex">
-    <%= form_tag(stations_path, method: :get) do %>
-      <%= text_field_tag :location, params[:location], placeholder: "Enter an address...", class: "rounded-4" %>
-      <%= button_tag(type: "submit", class: "btn btn-default") do %>
-        <i class="fa-solid fa-magnifying-glass"></i>
-      <% end %>
-    <% end %>
+<%= link_to stations_path, style: "text-decoration: none; color: inherit;" do %>
+  <div class="container vh-100 d-flex flex-column justify-content-center align-items-center" style="background-color: #7FDBE8;">
+    <div style="text-align: center;">
+      <%= image_tag("https://res.cloudinary.com/dutl4fpy7/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1702147389/Remove_background_project_2_xorlph.jpg?_s=public-apps",
+              width: 175, height: 175, gravity: :auto,
+              radius: "max",
+              alt: "logo") %>
+      <h1 class="page-headers">Waterouais</h1>
+    </div>
   </div>
--->
-
-  <div class="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-</div>
+<% end %>

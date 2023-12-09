@@ -18,12 +18,27 @@
         <%= simple_form_for(@station) do |f| %>
           <%= f.input :name, label: false, placeholder: 'Name' %>
           <%= f.input :description, label: false, placeholder: 'Special directions' %>
-          <%= f.input :address, label: false, placeholder: 'Address (autocomplete)' %>
-          <div class="d-flex geo-link" style="font-weight: bold; font-size: 20px; font-family: 'Fredoka';">
-            <%= link_to "https://google.com" do %>
-              <i class="fa-solid fa-location-crosshairs"></i> Use Geolocator
-            <% end %>
+          <%= f.input :address, label: false, placeholder: 'Address' %>
+
+          <!-- Button trigger modal -->
+          <a class="geo-link" style="font-weight: bold; font-size: 20px; font-family: 'Fredoka';" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-location-crosshairs"></i> Or use Geolocator
+          </a>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div id="mapmodal"
+                    data-controller="mapmodal"
+                    data-mapmodal-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                    style="height: 300px;">
+                </div>
+                <button class="btn btn-success geo-btn" data-bs-dismiss="modal">Pin!</button>
+              </div>
+            </div>
           </div>
+
 
           <div class="d-flex justify-content-center mt-2">
             <label class="btn-blue text-center mx-0">

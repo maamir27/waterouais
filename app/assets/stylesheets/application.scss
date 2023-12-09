@@ -26,6 +26,10 @@ $lightblue: #14BBB1;
   color: $lightblue;
 }
 
+a.geo-link:hover {
+  cursor: pointer;
+}
+
 .container-fluid {
   padding: 0;
   overflow: scroll;
@@ -129,4 +133,9 @@ body {
 
 .mapboxgl-popup {
   max-width: 300px;
+}
+
+.btn-blue:hover {
+  background-color: #6091bb;
+  cursor: pointer;
 }

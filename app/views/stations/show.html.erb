@@ -39,14 +39,14 @@
         <% end %>
       <% elsif @station.avg_rating % 1 != 0 %>
         <% @station.avg_rating.floor().to_i %>
-        <% @rest_of_stars = (5 - @station.avg_rating.floor().to_i) %>
+        <% @rest_of_stars = (4 - @station.avg_rating.floor().to_i) %>
 
         <% for a in (1..@station.avg_rating) do %>
           <i class="fa-solid fa-star"></i>
         <% end %>
-
-        <% for a in (1..@rest_of_stars) do %>
           <i class="fa-solid fa-star-half-stroke"></i>
+        <% for a in (1..@rest_of_stars) do %>
+          <i class="fa-regular fa-star"></i>
         <% end %>
       <% end %>
     </div>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="review-body ms-3">
-          <h6><%= review.user.username %> - <%= review.created_at.strftime("%d-%m-%Y") %></h6>
+          <h6><%= review.user.username %> - <%= review.created_at %></h6>
           <% for a in (1..review.rating) do %>
             <i class="fa-solid fa-star"></i>
           <% end %>

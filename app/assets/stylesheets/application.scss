@@ -44,6 +44,10 @@ a.geo-link:hover {
   margin-bottom: 42px;
 }
 
+.landing-container {
+  background: linear-gradient(135deg, #7FDBE8, #DCFCD4); /* Gradient background */
+}
+
 // .search-bar {
 //   position: absolute;
 //   z-index: 999;
@@ -115,6 +119,14 @@ body {
   font-weight: bold;
   color: $darkblue;
   font-size: 36px;
+}
+
+.sub-headers {
+  font-family: $headerfont;
+  font-weight: bolder;
+  color: $darkgreen;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(79, 78, 97, 0.5);
 }
 
 .blue-text {

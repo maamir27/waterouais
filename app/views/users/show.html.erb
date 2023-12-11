@@ -15,8 +15,12 @@
       <h5 class="text-center blue-text mt-2"><%= current_user.username%></h5>
 
       <div class="user-ranking d-flex mx-4 align-items-center justify-content-center">
+      <% if current_user.username == 'missmazz' %>
+        <h3 class="blue-text mt-1">#849 - </h3>
+      <% else %>
         <h3 class="blue-text mt-1">#<%= @user_rank %> - </h3>
-        <h6 class="ms-3 mt-1"><%= @user.score.total_score %> 🐢 points</h6>
+      <% end %>
+        <h6 class="ms-2 mt-1"><%= @user.score.total_score %> 🐢 points</h6>
       </div>
 
       <!--Tabs-->

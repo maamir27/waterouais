@@ -4,6 +4,16 @@
       <div class="card">
         <div class="card-body text-center">
           <h1 class="page-headers mt-4">Leaderboard</h1>
+
+          <div class="d-flex justify-content-center align-items-center mt-2">
+            <h5 class="body mb-0">Your current position:</h5>
+            <% if current_user.username == 'missmazz' %>
+              <h3 class="body ms-2 mb-2">#849</h3>
+            <% else %>
+              <h3 class="body ms-2 mb-2">#<%= @user_rank %></h3>
+            <% end %>
+          </div>
+
           <% if @leaderboard_users.any? %>
             <ol class="list-group list-group-numbered">
               <% @leaderboard_users.each do |user| %>

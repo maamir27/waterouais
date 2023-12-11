@@ -1,11 +1,13 @@
 <%= link_to stations_path, style: "text-decoration: none; color: inherit;" do %>
-  <div class="container vh-100 d-flex flex-column justify-content-center align-items-center" style="background-color: #7FDBE8;">
+  <div class="landing-container vh-100 d-flex flex-column justify-content-center align-items-center" style="background-color: #7FDBE8;">
     <div style="text-align: center;">
-      <%= image_tag("https://res.cloudinary.com/dutl4fpy7/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1702147389/Remove_background_project_2_xorlph.jpg?_s=public-apps",
+      <%= image_tag('logo.gif',
               width: 175, height: 175, gravity: :auto,
+              class: "rounded-circle",
               radius: "max",
               alt: "logo") %>
       <h1 class="page-headers">Waterouais</h1>
+      <p class="sub-headers">Tap to hydrate</p>
     </div>
   </div>
 <% end %>

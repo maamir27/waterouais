@@ -79,7 +79,7 @@ User.create!([{
   password_confirmation: 'paws321'
 }
 ])
-p "Created #{User.count} users."
+p "Adding #{User.count} users."
 
 jean_talon_market = Station.create!({
   name: 'Jean-Talon Market',
@@ -90,7 +90,6 @@ jean_talon_market = Station.create!({
 jean_talon = URI.open("https://www.bridgeandtunnelclub.com/bigmap/outoftown/canada/quebec/montreal/marchejean-talon/3802-15-10.jpg")
 jean_talon_market.photos.attach(io: jean_talon, filename: "jeantalon.jpg", content_type:"image/jpg")
 jean_talon_market.save!
-p "Created Jean Talon Market Station"
 
 westmount_station = Station.create!({
   name: 'Westmount Park',
@@ -101,7 +100,6 @@ westmount_station = Station.create!({
 westmount = URI.open("https://westmount.org/wp-content/uploads/2020/07/waterdispenser-800x445.jpg")
 westmount_station.photos.attach(io: westmount, filename: "westmount.jpg", content_type: "image/jpg")
 westmount_station.save!
-p "Created Westmount Park Station"
 
 parc_st_gabriel = Station.create!({
   name: 'Parc Saint-Gabriel',
@@ -113,7 +111,6 @@ parc_st_gabriel = Station.create!({
 parc_st_gabriel_photo = URI.open("https://lh5.googleusercontent.com/p/AF1QipNMvWCaBEM9Wj6tmYGtmyL75C4Rmzd2CVWw7fuE=s1127-k-no")
 parc_st_gabriel.photos.attach(io: parc_st_gabriel_photo, filename: "st_gabriel.jpg", content_type: "image/jpg")
 parc_st_gabriel.save!
-p "Created St-Gabriel Park Station"
 
 mt_royal_park = Station.create!({
   name: 'Parc du Mont-Royal',
@@ -121,7 +118,6 @@ mt_royal_park = Station.create!({
   description: 'On the way up to the lookout point',
   user: User.first
 })
-p "Created Parc du Mont-Royal Station"
 
 parc_louis_riel = Station.create!({
   name: 'Louis-Riel Park',
@@ -133,3 +129,62 @@ parc_louis_riel = Station.create!({
 parc_louis_reil_img = URI.open("https://res.cloudinary.com/villemontreal/image/upload/w_1200,h_1200,c_limit/f_auto,dpr_auto,q_auto/v1/portail/k2ybvsmu7dbipzsli2sh.jpg")
 parc_louis_riel.photos.attach(io: parc_louis_reil_img, filename: "louis_riel.jpg", content_type: "image/jpg")
 parc_louis_riel.save!
+
+concordia = Station.create!({
+  name: 'Concordia - Computer Science Building',
+  address: '2155 Guy St, Montreal, Quebec',
+  description: 'Works great!',
+  user: User.first
+})
+
+concordia_img = URI.open("https://www.concordia.ca/cunews/main/stories/2013/04/15/an-oasis-of-drinking-water-on-campus/_jcr_content/images/image_jpg_1.img.jpg")
+concordia.photos.attach(io: concordia_img, filename: "concordia.jpg", content_type: "image/jpg")
+concordia.save!
+
+p "Creating stations and adding to map..."
+
+Review.create!([{
+  date: DateTime.new(2023,11,27),
+  rating: 5,
+  description: 'Very close to the market, which is a bonus.',
+  station_id: 1,
+  user_id: 3
+},
+{
+  date: DateTime.new(2023,5,25),
+  rating: 1,
+  description: "Was out of order...",
+  station_id: 2,
+  user_id: 2
+},
+{
+  date: DateTime.new(2023,7,22),
+  rating: 3,
+  description: "Kind of hard to locate.",
+  station_id: 5,
+  user_id: 3
+},
+{
+  date: DateTime.new(2023,2,4),
+  rating: 4,
+  description: "Way in the corner of the park.",
+  station_id: 5,
+  user_id: 3
+},
+{
+  date: DateTime.new(2023,2,25),
+  rating: 4,
+  description: "Works!",
+  station_id: 3,
+  user_id: 5
+},
+{
+  date: DateTime.new(2023,9,2),
+  rating: 5,
+  description: "Conveniently located in University Building.",
+  station_id: 6,
+  user_id: 4
+}
+])
+
+p "#{Review.count} reviews created"

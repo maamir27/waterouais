@@ -1,4 +1,3 @@
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -19,8 +18,3 @@ class PagesController < ApplicationController
     .limit(10)
   end
 end
-
-#@leaderboard_users = User.includes(:score)
-#.select('users.*, scores.total_score, RANK() OVER (ORDER BY scores.total_score DESC) as rank')
-#.order('scores.total_score DESC')
-#.limit(10)

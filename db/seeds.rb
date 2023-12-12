@@ -83,7 +83,7 @@ p "Created #{User.count} users."
 
 jean_talon_market = Station.create!({
   name: 'Jean-Talon Market',
-  address: '7070 Henri-Julien Avenue Montréal, Québec H2S 3S3',
+  address: '7070 Henri-Julien Avenue, Montréal, Québec H2S 3S3',
   description: "Once you're inside the market, turn left at the turnstiles.",
   user: User.last
 })

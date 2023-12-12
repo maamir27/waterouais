@@ -1,17 +1,17 @@
 <div>
-  <div><h2><%= station.name %></h2></div>
+  <div><h2 class="info-window-title"><strong><%= station.name %></strong></h2></div>
   <div class="d-flex flex-row">
     <div class="p-2">
         <% station.photos.each do |p| %>
-          <%= (cl_image_tag p.key, :width => 86, :height => 86 ) %>
+          <%= (cl_image_tag p.key, :width => 86, :height => 86, :radius => 50 ) %>
         <% end %>
     </div>
     <div class="p-2">
       <div class="d-flex flex-column mb-3">
-        <div><p><%= station.address %></p></div>
+        <div><%= station.address.split(",")[0] %></div>
         <div><%= station.avg_rating %></div>
-        <div>Last updated: <%= (Time.now - station.updated_at).to_i/(24*60*60) %> days</div>
-        <div><%= link_to "View", station_path(station), :class => "btn btn-secondary" %></div>
+        <div><strong>Last updated:</strong> <%= (Time.now - station.updated_at).to_i/(24*60*60) %> days</div>
+        <div><%= link_to "View", station_path(station), :class => " info-window-button" %></div>
       </div>
     </div>
   </div>

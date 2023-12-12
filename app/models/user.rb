@@ -15,7 +15,7 @@ class User < ApplicationRecord
   after_commit :default_avatar, on: %i[create]
 
   def login
-    @login || username || email
+    @login || self.username || self.email
   end
 
   def default_avatar

@@ -61,22 +61,22 @@ User.create!([{
   password_confirmation: 'gabriela321'
 },
 {
-  username: 'jogmontreal',
+  username: 'zahraa32',
+  email: 'zahra@waterouais.com',
+  password: 'zahra321',
+  password_confirmation: 'zahra321'
+},
+{
+  username: 'alainah',
+  email: 'alainah@waterouais.com',
+  password: 'alainah321',
+  password_confirmation: 'alainah321'
+},
+{
+  username: 'mntrler',
   email: 'montreal@waterouais.com',
   password: 'montreal321',
   password_confirmation: 'montreal321'
-},
-{
-  username: 'mrdrip',
-  email: 'mrdrip@waterouais.com',
-  password: 'mrdrip321',
-  password_confirmation: 'mrdrip321'
-},
-{
-  username: 'pawspal',
-  email: 'pawspal@waterouais.com',
-  password: 'paws321',
-  password_confirmation: 'paws321'
 }
 ])
 p "Adding #{User.count} users."
@@ -131,8 +131,8 @@ parc_louis_riel.photos.attach(io: parc_louis_reil_img, filename: "louis_riel.jpg
 parc_louis_riel.save!
 
 concordia = Station.create!({
-  name: 'Concordia - Computer Science Building',
-  address: '2155 Guy St, Montreal, Quebec',
+  name: 'Concordia University',
+  address: '1455 De Maisonneuve Blvd. W, Montreal, Quebec,',
   description: 'Works great!',
   user: User.first
 })

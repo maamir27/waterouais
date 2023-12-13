@@ -25,6 +25,7 @@ malik = User.create!({
   password_confirmation: 'malik321'
 })
 malik.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/malik.jpeg"), filename: "malik.jpeg")
+malik.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1853)
 malik.save!
 
 missmazz = User.create!({
@@ -44,52 +45,82 @@ jaden = User.create!({
   password_confirmation: 'jaden321'
 })
 jaden.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/jaden.png"), filename: "jaden.png")
+
+jaden.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1460)
 jaden.save!
 
-User.create!([
-{
+richenda = User.create!({
   username: 'richenda',
   email: 'richenda@waterouais.com',
   password: 'richenda321',
   password_confirmation: 'richenda321'
-},
-{
+})
+richenda.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 700)
+richenda.save!
+
+mariam = User.create!({
   username: 'mariam',
   email: 'mariam@waterouais.com',
   password: 'mariam321',
   password_confirmation: 'mariam321'
-},
-{
-  username: 'shavonne83',
+})
+mariam.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 460)
+mariam.save!
+
+shavonne1 = User.create!({
+  username: 'shavonne1',
   email: 'shavonne@waterouais.com',
   password: 'shavonne321',
   password_confirmation: 'shavonne321'
-},
-{
+})
+shavonne1.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 464)
+shavonne1.save!
+
+gabriela29 = User.create!({
   username: 'gabriela29',
   email: 'gabriela@waterouais.com',
   password: 'gabriela321',
   password_confirmation: 'gabriela321'
-},
-{
+})
+gabriela29.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 990)
+gabriela29.save!
+
+zahraa32 = User.create!({
   username: 'zahraa32',
   email: 'zahra@waterouais.com',
   password: 'zahra321',
   password_confirmation: 'zahra321'
-},
-{
+})
+zahraa32.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 670)
+zahraa32.save!
+
+alainah = User.create!({
   username: 'alainah',
   email: 'alainah@waterouais.com',
   password: 'alainah321',
   password_confirmation: 'alainah321'
-},
-{
+})
+alainah.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 800)
+alainah.save!
+
+mntrler = User.create!({
   username: 'mntrler',
   email: 'montreal@waterouais.com',
   password: 'montreal321',
   password_confirmation: 'montreal321'
-}
-])
+})
+mntrler.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 950)
+mntrler.save!
+
+sofia = User.create!({
+  username: 'Sofia',
+  email: 'sofia@waterouais.com',
+  password: 'sofia321',
+  password_confirmation: 'sofia321'
+})
+sofia.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1000)
+sofia.save!
+
 p "Adding #{User.count} users."
 
 jean_talon_market = Station.create!({

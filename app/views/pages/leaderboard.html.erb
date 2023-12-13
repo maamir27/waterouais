@@ -27,14 +27,14 @@
 
                   <span class="me-4 <%= rank_class %>"><%= user.rank %></span>
 
-                  <% if current_user.avatar.attached? %>
-                      <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle mx-2", width: 40, height: 40) %>
+                  <% if user.avatar.attached? %>
+                      <%= cl_image_tag(user.avatar.key, class: "rounded-circle mx-2", width: 40, height: 40) %>
                     <% else %>
-                      <img src='<%= current_user.default_avatar %>' class="rounded-circle mx-2" width="40" height="40">
+                      <%= image_tag "default_user.jpg", class: "rounded-circle mx-2", width: 40, height: 40 %>
                   <% end %>
                   </div>
 
-                   <% if current_user.username.present?%>
+                  <% if current_user.username.present?%>
                      <span class="leaderboard-users ms-2"><%= user.username %></span>
                   <% else %>
                      <span class="leaderboard-users ms-2"><%= user.email %></span>

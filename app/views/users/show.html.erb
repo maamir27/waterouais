@@ -36,7 +36,7 @@
       <div class="tab-content" id="myTabContent">
         <!--Reviews tab-->
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-          <% @user.reviews.each do |review| %>
+          <% @reviews_submitted.each do |review| %>
             <div class="user-review d-flex p-3" style="align-items:center;">
               <% if review.station.photos.any? %>
                 <div class="me-3">
@@ -59,7 +59,6 @@
           <% end %>
         </div>
         <!--End Reviews tab-->
-
         <div class="tab-content" id="myTabContent">
           <!--Stations tab-->
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">

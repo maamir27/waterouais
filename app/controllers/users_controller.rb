@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_rank = User.joins(:score).where('scores.total_score > ?', @user.score.total_score).count + 1
-    @reviews_submitted = @user.reviews
+    @reviews_submitted = Review.where(user: @user.id)
     @created_stations = @user.stations
+
 
     @created_stations.each do |station|
       average_score_array = []

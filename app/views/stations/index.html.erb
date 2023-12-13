@@ -1,14 +1,28 @@
-<div class="container d-flex ">
-  <h1>Stations</h1>
+<div style="position: fixed; float: left; z-index: 1000; padding-top: 10px; padding-left: 3px; filter: drop-shadow(1px 1px 1px grey);">
+  <%= image_tag("https://i.postimg.cc/s2892Y9T/m-zzm-simple-elegant-2-dimensional-emoji-turtle-from-the-side-o-808cb97a-18ee-46b4-b6f1-67e492b8cd79.jpg",
+        width: 48, height: 48, crop: :fill, gravity: :auto,
+        radius: "max",
+        alt: "logo",
+        style: "border-radius: 50%;") %>
 </div>
 
-<% if @stations.present? %>
-  <% @stations.each do |station| %>
-    <%= station.name %></h5>
-    <p class="card-text"><%= station.address %></p>
-    <p class="card-text"><%= station.avg_rating %></p>
-    <%= link_to 'View', station_path(station) %>
-  <% end %>
-  <% else %>
-    <p>Sorry, no stations to display!</p>
-<% end %>
+<div class="container-fluid justify-content-center">
+
+<!--
+  <div class="search-bar d-flex">
+    <%= form_tag(stations_path, method: :get) do %>
+      <%= text_field_tag :location, params[:location], placeholder: "Enter an address...", class: "rounded-4" %>
+      <%= button_tag(type: "submit", class: "btn btn-default") do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    <% end %>
+  </div>
+-->
+
+  <div class="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+</div>

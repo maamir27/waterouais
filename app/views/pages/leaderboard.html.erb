@@ -1,12 +1,55 @@
-<h1>Leaderboard</h1>
-<% if @leaderboard_users.any? %>
-  <ol class="list-group">
-    <% @leaderboard_users.each do |user| %>
-      <li class="list-group-item">
-      <%= user.rank %> - <%= user.email %> - <%= user.score.try(:total_score) || "No score available" %>
-      </li>
-    <% end %>
-  </ol>
-<% else %>
-  <p>No scores available yet.</p>
-<% end %>
+<div class="container vh-100">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <h1 class="page-headers mt-4">Leaderboard</h1>
+
+          <div class="d-flex justify-content-center align-items-center mt-2">
+            <% if current_user.username == 'missmazz' %>
+              <h5 class="body mb-0">Your current position:</h5>
+              <h3 class="body ms-2 mb-2">#849</h3>
+            <% end %>
+          </div>
+
+          <% if @leaderboard_users.any? %>
+            <ol class="list-group list-group-numbered">
+              <% @leaderboard_users.each do |user| %>
+               <div class="rounded my-2">
+                  <li class="boxes list-group-item d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center">
+                  <% rank_class = case user.rank
+                                  when 1 then 'first'
+                                  when 2 then 'second'
+                                  when 3 then 'third'
+                                  else 'other'
+                                  end %>
+
+                  <span class="me-4 <%= rank_class %>"><%= user.rank %></span>
+
+                  <% if current_user.avatar.attached? %>
+                      <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle mx-2", width: 40, height: 40) %>
+                    <% else %>
+                      <img src='<%= current_user.default_avatar %>' class="rounded-circle mx-2" width="40" height="40">
+                  <% end %>
+                  </div>
+
+                   <% if current_user.username.present?%>
+                     <span class="leaderboard-users ms-2"><%= user.username %></span>
+                  <% else %>
+                     <span class="leaderboard-users ms-2"><%= user.email %></span>
+                  <% end %>
+
+                  <span class="points"><%= user.score.try(:total_score) || "No score available" %> points</span>
+                  </li>
+                </div>
+              <% end %>
+            </ol>
+          <% else %>
+            <p>No scores available yet.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

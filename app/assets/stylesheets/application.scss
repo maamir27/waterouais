@@ -10,6 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/button";
 
 // Variables
 $headerfont: 'Fredoka', sans-serif;
@@ -17,18 +18,34 @@ $bodyfont: 'Montserrat', sans-serif;
 $lightgray: #B3B3B3;
 $darkblue: #0A4374;
 $darkgreen: #2F8968;
+$lightblue: #14BBB1;
 
 // CSS
 
+.geo-link{
+  color: $lightblue;
+}
+
+a.geo-link:hover {
+  cursor: pointer;
+}
 
 .container-fluid {
   padding: 0;
+  overflow: scroll;
+  width: 100vw;
+  margin-bottom: 42px;
 }
 
 .container {
   padding: 0;
   overflow: scroll;
   width: 100vw;
+  margin-bottom: 42px;
+}
+
+.landing-container {
+  background: linear-gradient(135deg, #7FDBE8, #DCFCD4); /* Gradient background */
 }
 
 // .search-bar {
@@ -73,9 +90,21 @@ h1 {
   font-family: $headerfont;
 }
 
+h2 {
+  font-family: $headerfont;
+}
+
+h4 {
+  font-family: $headerfont;
+}
+
+h6 {
+  font-family: $headerfont;
+}
+
 body {
   font-family: $bodyfont;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
   // overflow: hidden;
 }
@@ -83,4 +112,114 @@ body {
 .w-100 {
   height: 320px;
   object-fit: cover;
+}
+
+.page-headers {
+  font-family: $headerfont;
+  font-weight: bold;
+  color: $darkblue;
+  font-size: 36px;
+}
+
+.sub-headers {
+  font-family: $headerfont;
+  font-weight: bolder;
+  color: $darkgreen;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(79, 78, 97, 0.5);
+}
+
+.blue-text {
+  font-family: $headerfont;
+  font-weight: bold;
+  color: $darkblue;
+}
+
+.station-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: black
+}
+
+// leaderboard colours
+
+.leaderboard-users {
+  font-family: $bodyfont;
+  color:#0A4374;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.boxes {
+  background-color: white;
+  border: 0cm;
+}
+.points {
+  font-family: $bodyfont;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.first {
+  color: #FF9090;
+  font-family: $headerfont;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.second {
+  color: #2F8968;
+  font-family: $headerfont;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.third {
+  color: #7B9FF2;
+  font-family: $headerfont;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.other {
+  color: black;
+  font-family: $headerfont;
+  font-size: 24px;
+}
+
+.review-user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+.mapboxgl-popup {
+  max-width: 300px;
+}
+
+.btn-blue:hover {
+  background-color: #6091bb;
+  cursor: pointer;
+}
+
+.tab-content > .active {
+  background: #FFFFFF;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border:#FFFFFF;
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: none;
+  --bs-nav-tabs-border-color: none;
+}
+
+a {
+  text-decoration: none !important;
 }

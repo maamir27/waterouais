@@ -19,6 +19,9 @@ $lightgray: #B3B3B3;
 $darkblue: #0A4374;
 $darkgreen: #2F8968;
 $lightblue: #14BBB1;
+$lighterblue: #7FDBE8;
+$lime: #DCFCD4;
+$salmon: #FFE2D2;
 
 // CSS
 
@@ -163,14 +166,14 @@ body {
 .first {
   color: #FF9090;
   font-family: $headerfont;
-  font-size: 36px;
+  font-size:28px;
   font-weight: bold;
 }
 
 .second {
   color: #2F8968;
   font-family: $headerfont;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
 }
 
@@ -184,7 +187,7 @@ body {
 .other {
   color: black;
   font-family: $headerfont;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .review-user-avatar {
@@ -223,3 +226,23 @@ body {
 a {
   text-decoration: none !important;
 }
+.logo-style {
+    /* Fallback: Set a background color. */
+    background-color: $darkblue;
+    font-style: italic;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, $darkblue, $darkgreen, $lighterblue, $lime);
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }

@@ -1,0 +1,20 @@
+.header {
+  width: 100%;
+  background-color: #F1F1F1;
+  z-index: 999;
+  height: 42px;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  box-shadow: 0px -4px 12px 8px #dbdbdba3;
+  top: 0;
+}
+
+.header .fa-solid, .fas {
+  font-size: 24px;
+}
+
+.header a {
+  color: #B3B3B3;
+  text-decoration: none;
+}

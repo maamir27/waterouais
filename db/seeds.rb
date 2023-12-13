@@ -18,24 +18,35 @@ User.destroy_all
 Station.destroy_all
 Review.destroy_all
 
-User.create!([{
+malik = User.create!({
   username: 'malik',
   email: 'malik@waterouais.com',
   password: 'malik321',
   password_confirmation: 'malik321'
-},
-{
+})
+malik.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/malik.jpeg"), filename: "malik.jpeg")
+malik.save!
+
+missmazz = User.create!({
   username: 'missmazz',
   email: 'mazz@waterouais.com',
   password: 'mazz321',
   password_confirmation: 'mazz321'
-},
-{
+  })
+
+missmazz.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/mazz.jpeg"), filename: "mazz.jpeg")
+missmazz.save!
+
+jaden = User.create!({
   username: 'jaden',
   email: 'jaden@waterouais.com',
   password: 'jaden321',
   password_confirmation: 'jaden321'
-},
+})
+jaden.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/jaden.png"), filename: "jaden.png")
+jaden.save!
+
+User.create!([
 {
   username: 'richenda',
   email: 'richenda@waterouais.com',

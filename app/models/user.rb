@@ -12,25 +12,31 @@ class User < ApplicationRecord
   has_many :stations, dependent: :destroy
   has_many :reviews, through: :stations, dependent: :destroy
   after_create :create_score_record
-  after_commit :default_avatar, on: %i[create]
+  # after_commit :default_avatar, on: %i[create]
 
   def login
     @login || self.username || self.email
   end
 
-  def default_avatar
-    unless avatar.attached?
-      avatar.attach(
-        io: File.open(
-          Rails.root.join(
-            'app', 'assets', 'images', 'default_user.jpg'
-          )
-        ),
-        filename: 'default_user.jpg',
-        content_type: 'image/jpg'
-      )
-    end
-  end
+  # def default_avatar
+  #   unless avatar.attached?
+  #     avatar.attach(
+  #       io: File.open(
+  #         Rails.root.join(
+  #           'app', 'assets', 'images', 'default_user.jpg'
+  #         )
+  #       ),
+  #       filename: 'default_user.jpg',
+  #       content_type: 'image/jpg'
+  #     )
+  #   end
+  # end
+
+  # def default_avatar
+  #   unless avatar.attached?
+  #     self.avatar.attach(io: File.open(Rails.root.join("/app/assets/images/default_user.jpg")))
+  #   end
+  # end
 
   private
 

@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def leaderboard
-    @leaderboard_users = User.select('users.*, scores.total_score, RANK() OVER (ORDER BY scores.total_score DESC)')
+    @leaderboard_users = User.select('users.*, scores.total_score, ROW_NUMBER() OVER (ORDER BY scores.total_score DESC)')
     .joins(:score)
     .limit(10)
   end

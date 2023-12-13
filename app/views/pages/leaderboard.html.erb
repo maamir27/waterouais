@@ -18,14 +18,14 @@
                <div class="rounded my-2">
                   <li class="boxes list-group-item d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center">
-                  <% rank_class = case user.rank
+                  <% rank_class = case user.row_number
                                   when 1 then 'first'
                                   when 2 then 'second'
                                   when 3 then 'third'
                                   else 'other'
                                   end %>
 
-                  <span class="me-4 <%= rank_class %>"><%= user.rank %></span>
+                  <span class="me-4 <%= rank_class %>"><%= user.row_number %></span>
 
                   <% if user.avatar.attached? %>
                       <%= cl_image_tag(user.avatar.key, class: "rounded-circle mx-2", width: 40, height: 40) %>

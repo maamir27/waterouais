@@ -16,6 +16,8 @@
 
   <body>
     <%= render "shared/flashes" %>
+    <%= render "shared/header" unless current_page?(root_path || stations_path) %>
+
     <%= yield %>
     <%= render "shared/footer" unless current_page?(root_path) %>
   </body>

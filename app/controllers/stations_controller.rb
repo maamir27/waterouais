@@ -1,11 +1,12 @@
 class StationsController < ApplicationController
   def index
-    @stations = Station.all
-    @markers = @stations.geocoded.map do |s|
+    @stations = Station.geocoded
+    @markers = @stations.map do |s|
       {
         lat: s.latitude,
         lng: s.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { station: s })
+        info_window_html: render_to_string(partial: "info_window", locals: { station: s }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end

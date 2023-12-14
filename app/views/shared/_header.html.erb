@@ -1,11 +1,12 @@
-<div class="header d-flex">
-  <%= link_to stations_path, style: "text-decoration: none; color: inherit;" do %>
-    <div style="position: sticky; float: left; z-index: 1000; padding-top: 2px; padding-left: 3px">
+<div class="header" style="display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1)">
+  <%= link_to stations_path, style: "position: sticky; text-decoration: none; color: inherit; display: flex; align-items: center;" do %>
+    <div style="z-index: 1000;">
       <%= image_tag("https://res.cloudinary.com/dutl4fpy7/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1702431816/Remove_background_project_1_xnaqgd.jpg?_s=public-apps",
             width: 48, height: 48, crop: :fill, gravity: :auto,
             radius: "max",
             alt: "logo",
             style: "border-radius: 50%;") %>
     </div>
+    <h1 class="logo-style" style="margin-left: 4px; display: flex; align-items: center; margin-top: 8px;">Waterouais</h1>
   <% end %>
 </div>

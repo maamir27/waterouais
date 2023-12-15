@@ -3,7 +3,7 @@
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
 
-        <%= @station.photos.each_with_index do |photo, index| %>
+        <% @station.photos.each_with_index do |photo, index| %>
           <div id="carousel_item_<%= index %>" class="carousel-item <%= index == 0 ? 'active' : '' %>">
             <%= cl_image_tag photo.key, class:"d-block w-100" %>
           </div>

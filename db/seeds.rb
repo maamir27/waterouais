@@ -178,7 +178,7 @@ parc_pelican = Station.create!({
   name: 'Pelican Park',
   address: "Parc du Pelican, Montreal",
   description: 'A modern water fountain graces Pelican Park, featuring contemporary design elements and providing a refreshing oasis for park-goers to enjoy.',
-  user: User.first
+  user: User.third
   })
 pelican = URI.open("https://media.lavitrine.com/image/1503588230240.jpg?format=w600h400")
 parc_pelican.photos.attach(io: pelican, filename: "westmount.jpg", content_type: "image/jpg")
@@ -188,18 +188,17 @@ parc_maisonneuve = Station.create!({
   name: 'Maisonneuve Park',
   address: "4601 R. Sherbrooke E, Montréal",
   description: 'A modern water fountain graces Maisoneuve Park',
-  user: User.first
+  user: User.last
   })
 maisonneuve = URI.open("https://lh3.googleusercontent.com/p/AF1QipNXhIxEhtIPrrajeKiKLw_C85YdwdP2EmEsxD7L=s1360-w1360-h1020")
 parc_maisonneuve.photos.attach(io: maisonneuve, filename: "westmount.jpg", content_type: "image/jpg")
 parc_maisonneuve.save!
 
-
 parc_joseph_pare = Station.create!({
   name: 'Joseph Paré Park',
-  address: "Parc Joseph-Paré"  ,
+  address: "Parc Joseph-Paré",
   description: 'Joseph-Paré Park boasts a charming water fountain, seamlessly blending aesthetic appeal with functionality.',
-  user: User.first
+  user: User.second
   })
 joseph_pare = URI.open("https://lh3.googleusercontent.com/p/AF1QipP4vjxAKpmb51AIps_G4xvloYk6Yz2U4XUGgEVz=s1360-w1360-h1020")
 parc_joseph_pare.photos.attach(io: joseph_pare, filename: "westmount.jpg", content_type: "image/jpg")
@@ -209,7 +208,7 @@ parc_lafond = Station.create!({
   name: 'Lafond Park',
   address: "3330 Avenue Laurier, Montreal",
   description: 'At Lafond Park, a picturesque water fountain stands as a focal point, harmonizing beauty and practicality. ',
-  user: User.first
+  user: User.last
   })
 lafond = URI.open("https://lh3.googleusercontent.com/p/AF1QipP4vjxAKpmb51AIps_G4xvloYk6Yz2U4XUGgEVz=s1360-w1360-h1020")
 parc_lafond.photos.attach(io: lafond, filename: "westmount.jpg", content_type: "image/jpg")
@@ -218,7 +217,7 @@ parc_lafond.save!
 parc_molson = Station.create!({
   name: 'Molson Park',
   address: "6496 Rue D'Iberville, Montreal",
-  description: 'At Molson Park, a picturesque water fountain stands as a focal point, harmonizing beauty and practicality. ',
+  description: 'At Molson Park.',
   user: User.first
   })
 molson = URI.open("https://imtl.org/image/big/3_MG_0826.jpg")
@@ -259,7 +258,7 @@ sport_park_pere_marquette = Station.create!({
   name: "Pere Narquette Sport Park",
   address: "6633, 6e Avenue Montreal",
   description: "At Sport Park Pere Marquette, a dynamic water fountain takes center stage.",
-  user: User.first
+  user: User.second
   })
 pere_marquette = URI.open("https://res.cloudinary.com/villemontreal/image/upload/v1668805945/portail/e6ycbxa7dskdtuj8potx.jpg")
 sport_park_pere_marquette.photos.attach(io: pere_marquette, filename: "westmount.jpg", content_type: "image/jpg")
@@ -269,7 +268,7 @@ sport_park_claude_robillard = Station.create!({
   name: "Claude Robillard Sports Complex",
   address: "1000 Av. Émile-Journault, Montréal, QC H2M 2E7",
   description: "At Sport Park Pere Marquette, a dynamic water fountain takes center stage.",
-  user: User.first
+  user: User.third
   })
 claude_robillard = URI.open("https://ville.montreal.qc.ca/memoiresdesmontrealais/sites/default/files/80136856.jpg")
 sport_park_claude_robillard.photos.attach(io: claude_robillard, filename: "westmount.jpg", content_type: "image/jpg")
@@ -289,7 +288,7 @@ parc_gohier = Station.create!({
   name: "Gohier Park",
   address: "Parc Gohier, Montreal",
   description: "At Gohier Park, an inviting water fountain graces the landscape with practical allure.",
-  user: User.first
+  user: User.last
   })
 gohier = URI.open("https://ville.montreal.qc.ca/memoiresdesmontrealais/sites/default/files/80136856.jpg")
 parc_gohier.photos.attach(io: gohier, filename: "westmount.jpg", content_type: "image/jpg")
@@ -299,7 +298,7 @@ parc_kindersley = Station.create!({
   name: "Kindersley Park",
   address: "Park Kindersley, Mount Royal, Quebec",
   description: "At kindersley Park, an accessible water fountain.",
-  user: User.first
+  user: User.third
   })
 kindersley = URI.open("https://strollerparking.ca/wp-content/uploads/2019/09/0Q7A6880-1024x683.jpg")
 parc_kindersley.photos.attach(io: kindersley, filename: "westmount.jpg", content_type: "image/jpg")
@@ -367,7 +366,7 @@ Review.create!([{
   rating: 3,
   description: "Kind of hard to locate.",
   station: westmount_station,
-  user: jaden
+  user: malik
 },
 {
   date: DateTime.new(2023,2,4),
@@ -389,6 +388,34 @@ Review.create!([{
   description: "Conveniently located in University Building.",
   station: westmount_station,
   user: richenda
+},
+{
+  date: DateTime.new(2022,10,3),
+  rating: 1,
+  description: "Hate it here...",
+  station: westmount_station,
+  user: shavonne1
+},
+{
+  date: DateTime.new(2023,9,2),
+  rating: 4,
+  description: "Cute picnic spot!",
+  station: parc_maisonneuve,
+  user: malik
+},
+{
+  date: DateTime.new(2023,7,13),
+  rating: 2,
+  description: "Wasn't very clean..",
+  station: parc_lafond,
+  user: missmazz
+},
+{
+  date: DateTime.new(2023,8,10),
+  rating: 4,
+  description: "Love this park, and the station is very centrally located!",
+  station: parc_beaubien,
+  user: jaden
 }
 ])
 

@@ -107,12 +107,12 @@
       </div>
       <!--End Tabs-->
 
-      <div class="station-btns mt-3">
+      <div class="station-btns mt-4">
         <div class="d-flex justify-content-center">
-          <%= link_to "Logout", destroy_user_session_path, class: "btn btn-blue", data: { turbo_method: :delete } %>
+          <%= link_to "Logout", destroy_user_session_path, class: "btn btn-blue text-center mx-0", data: { turbo_method: :delete } %>
         </div>
         <div class="d-flex justify-content-center">
-          <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-green" %>
+          <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-green", style:"margin:auto;" %>
         </div>
       </div>
 

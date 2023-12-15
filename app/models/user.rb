@@ -32,12 +32,6 @@ class User < ApplicationRecord
   #   end
   # end
 
-  # def default_avatar
-  #   unless avatar.attached?
-  #     self.avatar.attach(io: File.open(Rails.root.join("/app/assets/images/default_user.jpg")))
-  #   end
-  # end
-
   private
 
   def create_score_record

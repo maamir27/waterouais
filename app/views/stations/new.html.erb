@@ -5,9 +5,12 @@
 
       <div class="user-info-points d-flex mt-3" style="justify-content: space-around;">
         <div class="user-avatar">
-          <%= cl_image_tag current_user.avatar.key, style:"width:48px; height:48px; object-fit: cover; border-radius:50%;" %>
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag(current_user.avatar.key, class: "rounded-circle", width: 64, height: 64) %>
+          <% else %>
+            <%= image_tag("/assets/default_user.jpg", :alt => "default", class: "rounded-circle", width: 64, height: 64) %>
+          <% end %>
         </div>
-
         <div class="user-points-info">
           <h6><%= current_user.username%></h6>
           <p>Create and you will earn 5 points!</p>

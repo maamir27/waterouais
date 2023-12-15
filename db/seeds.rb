@@ -218,7 +218,7 @@ parc_molson = Station.create!({
   name: 'Molson Park',
   address: "6496 Rue D'Iberville, Montreal",
   description: 'At Molson Park.',
-  user: User.first
+  user: User.last
   })
 molson = URI.open("https://imtl.org/image/big/3_MG_0826.jpg")
 parc_molson.photos.attach(io: molson, filename: "westmount.jpg", content_type: "image/jpg")
@@ -228,7 +228,7 @@ place_hector = Station.create!({
   name: "Place Hector-Prud'homme",
   address: "Rue de Bellechasse, Montréal",
   description: "Discover tranquility at Place Hector-Prud'homme with the allure of a water fountain.",
-  user: User.first
+  user: User.second
   })
 hector = URI.open("https://changetaville.files.wordpress.com/2017/03/place-hector-prudhomme.jpg?w=665&resize=665%2C347&h=347")
 place_hector.photos.attach(io: hector, filename: "westmount.jpg", content_type: "image/jpg")
@@ -238,7 +238,7 @@ avenue_shamrock = Station.create!({
   name: "Shamrock Avenue",
   address: "Rue de Bellechasse, Montréal",
   description: "This captivating feature combines artistic flair with a refreshing purpose, beckoning visitors to pause and enjoy a moment of calm amidst the park's natural surroundings.",
-  user: User.first
+  user: User.second
   })
 shamrock = URI.open("https://lh5.googleusercontent.com/p/AF1QipP-vGoaRfCCY479alT4DsO7_ClamdNcjSMt6pxL=w408-h306-k-no")
 avenue_shamrock.photos.attach(io: shamrock, filename: "westmount.jpg", content_type: "image/jpg")
@@ -278,7 +278,7 @@ parc_st_laurent = Station.create!({
   name: "Saint Laurent Park",
   address: "Parc Saint-Laurent, Montreal",
   description: "At Sport Park Pere Marquette, a dynamic water fountain takes center stage.",
-  user: User.first
+  user: User.second
   })
 st_laurent = URI.open("https://ville.montreal.qc.ca/memoiresdesmontrealais/sites/default/files/80136856.jpg")
 parc_st_laurent.photos.attach(io: st_laurent, filename: "westmount.jpg", content_type: "image/jpg")
@@ -327,7 +327,7 @@ parc_louis_riel = Station.create!({
   name: 'Louis-Riel Park',
   address: '5950 Av. de Carignan',
   description: 'There is a little fountain for your dog too',
-  user: User.first
+  user: User.last
 })
 
 parc_louis_reil_img = URI.open("https://res.cloudinary.com/villemontreal/image/upload/w_1200,h_1200,c_limit/f_auto,dpr_auto,q_auto/v1/portail/k2ybvsmu7dbipzsli2sh.jpg")
@@ -408,14 +408,21 @@ Review.create!([{
   rating: 2,
   description: "Wasn't very clean..",
   station: parc_lafond,
-  user: missmazz
+  user: shavonne1
 },
 {
   date: DateTime.new(2023,8,10),
   rating: 4,
   description: "Love this park, and the station is very centrally located!",
   station: parc_beaubien,
-  user: jaden
+  user: richenda
+},
+{
+  date: DateTime.new(2023,2,7),
+  rating: 2,
+  description: "not working",
+  station: parc_sir_wilfried,
+  user: danny
 }
 ])
 

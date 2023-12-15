@@ -8,7 +8,7 @@
   <% end %>
 
   <%= link_to new_station_path do %>
-    <i class="<%= current_class_by(path:new_station_path) %> fa-solid fa-location-dot"></i>
+    <iconify-icon icon="ri:map-pin-add-fill" style="font-size:28px;" class="<%= current_class_by(path:new_station_path) %> mt-1 fa-solid"></iconify-icon>
   <% end %>
 
   <% if current_user %>

@@ -1,23 +1,23 @@
 <div class="footer d-flex">
   <%= link_to leaderboard_path do %>
-    <i class="fa-solid fa-ranking-star"></i>
+    <i class="<%= current_class_by(path:leaderboard_path) %> fa-solid fa-ranking-star"></i>
   <% end %>
 
   <%= link_to stations_path do %>
-    <i class="fa-solid fa-map-location-dot"></i>
+    <i class="<%= current_class_by(path:stations_path) %> fa-solid fa-map-location-dot"></i>
   <% end %>
 
   <%= link_to new_station_path do %>
-    <i class="fa-solid fa-location-dot"></i>
+    <i class="<%= current_class_by(path:new_station_path) %> fa-solid fa-location-dot"></i>
   <% end %>
 
   <% if current_user %>
     <%= link_to user_path(current_user[:id]) do %>
-      <i class="fa-solid fa-user"></i>
+      <i class="<%= current_class_by(path:user_path(current_user[:id])) %> fa-solid fa-user"></i>
     <% end %>
   <% else %>
     <%= link_to new_user_session_path do %>
-      <i class="fa-solid fa-user"></i>
+      <i class="<%= current_class_by(path:new_user_session_path) %> fa-solid fa-user"></i>
     <% end %>
   <% end %>
 </div>

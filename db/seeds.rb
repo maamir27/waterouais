@@ -381,7 +381,7 @@ Review.create!([{
   rating: 4,
   description: "Works!",
   station: parc_st_gabriel,
-  user: mariam
+  user: nadia
 },
 {
   date: DateTime.new(2023,9,2),

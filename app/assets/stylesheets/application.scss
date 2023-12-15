@@ -138,6 +138,11 @@ body {
   // overflow: hidden;
 }
 
+.round {
+  border-radius: 10px;
+  padding: 10px;
+}
+
 .w-100 {
   height: 320px;
   object-fit: cover;
@@ -174,8 +179,9 @@ body {
 
 .leaderboard-users {
   font-family: $bodyfont;
+  font-weight: bolder;
   color:#0A4374;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -213,7 +219,8 @@ body {
 .other {
   color: black;
   font-family: $headerfont;
-  font-size: 28px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .review-user-avatar {

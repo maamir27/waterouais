@@ -18,19 +18,19 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-  # def default_avatar
-  #   unless avatar.attached?
-  #     avatar.attach(
-  #       io: File.open(
-  #         Rails.root.join(
-  #           'app', 'assets', 'images', 'default_user.jpg'
-  #         )
-  #       ),
-  #       filename: 'default_user.jpg',
-  #       content_type: 'image/jpg'
-  #     )
-  #   end
-  # end
+  def default_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'default_user.jpg'
+          )
+        ),
+        filename: 'default_user.jpg',
+        content_type: 'image/jpg'
+      )
+    end
+  end
 
   # def default_avatar
   #   unless avatar.attached?

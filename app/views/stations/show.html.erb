@@ -79,7 +79,11 @@
     <% @station.reviews.each do |review| %>
       <div class="review-card d-flex p-4" style="flex-direction: row;">
         <div class="review-user-avatar mt-3">
-          <%= cl_image_tag review.user.avatar.key, style:"width:32px; height:32px; object-fit: cover; border-radius:50%;" %>
+          <% if review.user.avatar.attached? %>
+            <%= cl_image_tag(review.user.avatar.key, class: "rounded-circle", width: 64, height: 64) %>
+          <% else %>
+            <%= image_tag("/assets/default_user.jpg", :alt => "default", class: "rounded-circle", width: 64, height: 64) %>
+          <% end %>
         </div>
 
         <div class="review-body ms-3">

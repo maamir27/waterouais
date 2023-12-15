@@ -80,18 +80,18 @@
       <div class="review-card d-flex p-4" style="flex-direction: row;">
         <div class="review-user-avatar mt-3">
           <% if review.user.avatar.attached? %>
-            <%= cl_image_tag(review.user.avatar.key, class: "rounded-circle", width: 64, height: 64) %>
+            <%= cl_image_tag(review.user.avatar.key, class: "rounded-circle", width: 32, height: 32) %>
           <% else %>
-            <%= image_tag("/assets/default_user.jpg", :alt => "default", class: "rounded-circle", width: 64, height: 64) %>
+            <%= image_tag("/assets/default_user.jpg", :alt => "default", class: "rounded-circle", width: 32, height: 32) %>
           <% end %>
         </div>
 
         <div class="review-body ms-3">
-          <h6><%= review.user.username %> - <%= review.created_at.strftime("%Y-%m-%d") %></h6>
+          <h6 class="mb-1"><%= review.user.username %> - <%= review.created_at.strftime("%Y-%m-%d") %></h6>
           <% for a in (1..review.rating) do %>
             <i class="fa-solid fa-star"></i>
           <% end %>
-          <p><%= review.description %></p>
+          <p class="mt-1"><%= review.description %></p>
         </div>
 
         <div class="review-photos d-flex" style="flex-direction:row-reverse; margin-left:auto; margin-top:auto; gap:4px;">

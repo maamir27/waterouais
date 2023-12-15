@@ -15,7 +15,7 @@
           <% if @leaderboard_users.any? %>
             <ol class="list-group list-group-numbered">
               <% @leaderboard_users.each do |user| %>
-               <div class="round my-1 mx-3 p-2">
+               <div class="round mx-3 p-2">
                   <li class="boxes list-group-item d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center">
                   <% rank_class = case user.row_number

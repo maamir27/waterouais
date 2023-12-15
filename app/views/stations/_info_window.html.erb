@@ -10,7 +10,7 @@
       <div class="d-flex flex-column mb-3">
         <div><%= station.address.split(",")[0] %></div>
         <div><%= station.avg_rating %></div>
-        <div><strong>Last updated:</strong> <%= (Time.now - station.updated_at).to_i/(24*60*60) %> days</div>
+        <div class="mb-2"><strong>Last updated:</strong> <%= (Time.now - station.updated_at).to_i/(24*60*60) %> days</div>
         <div><%= link_to "View", station_path(station), :class => " info-window-button" %></div>
       </div>
     </div>

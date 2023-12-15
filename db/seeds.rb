@@ -14,6 +14,7 @@
 # end
 require "open-uri"
 
+Review.destroy_all
 User.destroy_all
 Station.destroy_all
 Review.destroy_all
@@ -151,20 +152,172 @@ westmount = URI.open("https://westmount.org/wp-content/uploads/2020/07/waterdisp
 westmount_station.photos.attach(io: westmount, filename: "westmount.jpg", content_type: "image/jpg")
 westmount_station.save!
 
+parc_delorme = Station.create!({
+  name: 'Delorme Park',
+  address: 'Parc Delorme',
+  description: 'An elegant water fountain at Delorme Park, adorned with artistic motifs, provides a refreshing source for visitors',
+  user: User.first
+  })
+delorme = URI.open("https://ir.4sqi.net/img/general/original/34318217_aYUh4nUGfDdNmLCjSrJrx_IbQJAHQu1ZU8iQYosjRa0.jpg")
+parc_delorme.photos.attach(io: delorme, filename: "westmount.jpg", content_type: "image/jpg")
+parc_delorme.save!
+
+
+parc_sir_wilfried = Station.create!({
+  name: 'Sir-Wilfried-Laurier Park',
+  address: 'Parc Sir-Wilfrid-Laurier',
+  description: 'An elegant water fountain at Parc Sir-Wilfrid-Laurier',
+  user: User.first
+  })
+sir_wilfried = URI.open("https://upload.wikimedia.org/wikipedia/commons/0/0a/Allee_Parc_Laurier.JPG")
+parc_sir_wilfried.photos.attach(io: sir_wilfried, filename: "westmount.jpg", content_type: "image/jpg")
+parc_sir_wilfried.save!
+
+
+parc_pelican = Station.create!({
+  name: 'Pelican Park',
+  address: "Parc du Pelican, Montreal",
+  description: 'A modern water fountain graces Pelican Park, featuring contemporary design elements and providing a refreshing oasis for park-goers to enjoy.',
+  user: User.first
+  })
+pelican = URI.open("https://media.lavitrine.com/image/1503588230240.jpg?format=w600h400")
+parc_pelican.photos.attach(io: pelican, filename: "westmount.jpg", content_type: "image/jpg")
+parc_pelican.save!
+
+parc_maisonneuve = Station.create!({
+  name: 'Maisonneuve Park',
+  address: "4601 R. Sherbrooke E, Montréal",
+  description: 'A modern water fountain graces Maisoneuve Park',
+  user: User.first
+  })
+maisonneuve = URI.open("https://lh3.googleusercontent.com/p/AF1QipNXhIxEhtIPrrajeKiKLw_C85YdwdP2EmEsxD7L=s1360-w1360-h1020")
+parc_maisonneuve.photos.attach(io: maisonneuve, filename: "westmount.jpg", content_type: "image/jpg")
+parc_maisonneuve.save!
+
+
+parc_joseph_pare = Station.create!({
+  name: 'Joseph Paré Park',
+  address: "Parc Joseph-Paré"  ,
+  description: 'Joseph-Paré Park boasts a charming water fountain, seamlessly blending aesthetic appeal with functionality.',
+  user: User.first
+  })
+joseph_pare = URI.open("https://lh3.googleusercontent.com/p/AF1QipP4vjxAKpmb51AIps_G4xvloYk6Yz2U4XUGgEVz=s1360-w1360-h1020")
+parc_joseph_pare.photos.attach(io: joseph_pare, filename: "westmount.jpg", content_type: "image/jpg")
+parc_joseph_pare.save!
+
+parc_lafond = Station.create!({
+  name: 'Lafond Park',
+  address: "3330 Avenue Laurier, Montreal",
+  description: 'At Lafond Park, a picturesque water fountain stands as a focal point, harmonizing beauty and practicality. ',
+  user: User.first
+  })
+lafond = URI.open("https://lh3.googleusercontent.com/p/AF1QipP4vjxAKpmb51AIps_G4xvloYk6Yz2U4XUGgEVz=s1360-w1360-h1020")
+parc_lafond.photos.attach(io: lafond, filename: "westmount.jpg", content_type: "image/jpg")
+parc_lafond.save!
+
+parc_molson = Station.create!({
+  name: 'Molson Park',
+  address: "6496 Rue D'Iberville, Montreal",
+  description: 'At Molson Park, a picturesque water fountain stands as a focal point, harmonizing beauty and practicality. ',
+  user: User.first
+  })
+molson = URI.open("https://imtl.org/image/big/3_MG_0826.jpg")
+parc_molson.photos.attach(io: molson, filename: "westmount.jpg", content_type: "image/jpg")
+parc_molson.save!
+
+place_hector = Station.create!({
+  name: "Place Hector-Prud'homme",
+  address: "Rue de Bellechasse, Montréal",
+  description: "Discover tranquility at Place Hector-Prud'homme with the allure of a water fountain.",
+  user: User.first
+  })
+hector = URI.open("https://changetaville.files.wordpress.com/2017/03/place-hector-prudhomme.jpg?w=665&resize=665%2C347&h=347")
+place_hector.photos.attach(io: hector, filename: "westmount.jpg", content_type: "image/jpg")
+place_hector.save!
+
+avenue_shamrock = Station.create!({
+  name: "Shamrock Avenue",
+  address: "Rue de Bellechasse, Montréal",
+  description: "This captivating feature combines artistic flair with a refreshing purpose, beckoning visitors to pause and enjoy a moment of calm amidst the park's natural surroundings.",
+  user: User.first
+  })
+shamrock = URI.open("https://lh5.googleusercontent.com/p/AF1QipP-vGoaRfCCY479alT4DsO7_ClamdNcjSMt6pxL=w408-h306-k-no")
+avenue_shamrock.photos.attach(io: shamrock, filename: "westmount.jpg", content_type: "image/jpg")
+avenue_shamrock.save!
+
+parc_beaubien = Station.create!({
+  name: "Beaubien Park",
+  address: "6633, 6e Avenue Montreal",
+  description: "Enhance your experience at Beaubien Park with the soothing presence of a water fountain.",
+  user: User.first
+  })
+beaubien = URI.open("https://imtl.org/image/big/1_MG_5612.jpg")
+parc_beaubien.photos.attach(io: beaubien, filename: "westmount.jpg", content_type: "image/jpg")
+parc_beaubien.save!
+
+sport_park_pere_marquette = Station.create!({
+  name: "Pere Narquette Sport Park",
+  address: "6633, 6e Avenue Montreal",
+  description: "At Sport Park Pere Marquette, a dynamic water fountain takes center stage.",
+  user: User.first
+  })
+pere_marquette = URI.open("https://res.cloudinary.com/villemontreal/image/upload/v1668805945/portail/e6ycbxa7dskdtuj8potx.jpg")
+sport_park_pere_marquette.photos.attach(io: pere_marquette, filename: "westmount.jpg", content_type: "image/jpg")
+sport_park_pere_marquette.save!
+
+sport_park_claude_robillard = Station.create!({
+  name: "Claude Robillard Sports Complex",
+  address: "1000 Av. Émile-Journault, Montréal, QC H2M 2E7",
+  description: "At Sport Park Pere Marquette, a dynamic water fountain takes center stage.",
+  user: User.first
+  })
+claude_robillard = URI.open("https://ville.montreal.qc.ca/memoiresdesmontrealais/sites/default/files/80136856.jpg")
+sport_park_claude_robillard.photos.attach(io: claude_robillard, filename: "westmount.jpg", content_type: "image/jpg")
+sport_park_claude_robillard.save!
+
+parc_st_laurent = Station.create!({
+  name: "Saint Laurent Park",
+  address: "Parc Saint-Laurent, Montreal",
+  description: "At Sport Park Pere Marquette, a dynamic water fountain takes center stage.",
+  user: User.first
+  })
+st_laurent = URI.open("https://ville.montreal.qc.ca/memoiresdesmontrealais/sites/default/files/80136856.jpg")
+parc_st_laurent.photos.attach(io: st_laurent, filename: "westmount.jpg", content_type: "image/jpg")
+parc_st_laurent.save!
+
+parc_gohier = Station.create!({
+  name: "Gohier Park",
+  address: "Parc Gohier, Montreal",
+  description: "At Gohier Park, an inviting water fountain graces the landscape with practical allure.",
+  user: User.first
+  })
+gohier = URI.open("https://ville.montreal.qc.ca/memoiresdesmontrealais/sites/default/files/80136856.jpg")
+parc_gohier.photos.attach(io: gohier, filename: "westmount.jpg", content_type: "image/jpg")
+parc_gohier.save!
+
+parc_kindersley = Station.create!({
+  name: "Kindersley Park",
+  address: "Park Kindersley, Mount Royal, Quebec",
+  description: "At kindersley Park, an accessible water fountain.",
+  user: User.first
+  })
+kindersley = URI.open("https://strollerparking.ca/wp-content/uploads/2019/09/0Q7A6880-1024x683.jpg")
+parc_kindersley.photos.attach(io: kindersley, filename: "westmount.jpg", content_type: "image/jpg")
+parc_kindersley.save!
+
 parc_st_gabriel = Station.create!({
   name: 'Parc Saint-Gabriel',
   address: '2355 Rue Mullins, Montréal, Quebec',
   description: 'Not too far from Charlevoix metro.',
   user: User.first
 })
-
 parc_st_gabriel_photo = URI.open("https://lh5.googleusercontent.com/p/AF1QipNMvWCaBEM9Wj6tmYGtmyL75C4Rmzd2CVWw7fuE=s1127-k-no")
 parc_st_gabriel.photos.attach(io: parc_st_gabriel_photo, filename: "st_gabriel.jpg", content_type: "image/jpg")
 parc_st_gabriel.save!
 
 mt_royal_park = Station.create!({
   name: 'Parc du Mont-Royal',
-  address: '2000, chemin Remembrance, Montreal, Quebec,',
+  address: '2000, chemin Remembrance',
   description: 'On the way up to the lookout point',
   user: User.first
 })
@@ -173,7 +326,7 @@ mt_royal_park.save!
 
 parc_louis_riel = Station.create!({
   name: 'Louis-Riel Park',
-  address: '5950 Av. de Carignan, Montréal, Quebec,',
+  address: '5950 Av. de Carignan',
   description: 'There is a little fountain for your dog too',
   user: User.first
 })
@@ -184,7 +337,7 @@ parc_louis_riel.save!
 
 concordia = Station.create!({
   name: 'Concordia University',
-  address: '1455 De Maisonneuve Blvd. W, Montreal, Quebec,',
+  address: '1455 De Maisonneuve Blvd. W',
   description: 'Works great!',
   user: User.first
 })
@@ -199,43 +352,43 @@ Review.create!([{
   date: DateTime.new(2023,11,27),
   rating: 5,
   description: 'Very close to the market, which is a bonus.',
-  station_id: 1,
-  user_id: 3
+  station: jean_talon_market,
+  user: jaden
 },
 {
   date: DateTime.new(2023,5,25),
   rating: 1,
   description: "Was out of order...",
-  station_id: 2,
-  user_id: 2
+  station: westmount_station,
+  user: missmazz
 },
 {
   date: DateTime.new(2023,7,22),
   rating: 3,
   description: "Kind of hard to locate.",
-  station_id: 5,
-  user_id: 3
+  station: westmount_station,
+  user: jaden
 },
 {
   date: DateTime.new(2023,2,4),
   rating: 4,
   description: "Way in the corner of the park.",
-  station_id: 5,
-  user_id: 3
+  station: parc_st_gabriel,
+  user: jaden
 },
 {
   date: DateTime.new(2023,2,25),
   rating: 4,
   description: "Works!",
-  station_id: 3,
-  user_id: 5
+  station: parc_st_gabriel,
+  user: nadia
 },
 {
   date: DateTime.new(2023,9,2),
   rating: 5,
   description: "Conveniently located in University Building.",
-  station_id: 6,
-  user_id: 4
+  station: westmount_station,
+  user: richenda
 }
 ])
 

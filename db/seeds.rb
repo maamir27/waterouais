@@ -19,7 +19,7 @@ Station.destroy_all
 Review.destroy_all
 
 malik = User.create!({
-  username: 'malik',
+  username: 'maamir',
   email: 'malik@waterouais.com',
   password: 'malik321',
   password_confirmation: 'malik321'
@@ -36,6 +36,7 @@ missmazz = User.create!({
   })
 
 missmazz.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/mazz.jpeg"), filename: "mazz.jpeg")
+missmazz.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1300)
 missmazz.save!
 
 jaden = User.create!({
@@ -45,7 +46,6 @@ jaden = User.create!({
   password_confirmation: 'jaden321'
 })
 jaden.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/jaden.png"), filename: "jaden.png")
-
 jaden.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1460)
 jaden.save!
 
@@ -55,44 +55,49 @@ richenda = User.create!({
   password: 'richenda321',
   password_confirmation: 'richenda321'
 })
+richenda.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/richenda.jpeg"), filename: "richenda.jpeg")
 richenda.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 700)
 richenda.save!
 
-mariam = User.create!({
-  username: 'mariam',
-  email: 'mariam@waterouais.com',
-  password: 'mariam321',
-  password_confirmation: 'mariam321'
-})
-mariam.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 460)
-mariam.save!
+danny = User.create!({
+  username: 'drdanny',
+  email: 'danny@waterouais.com',
+  password: 'danny321',
+  password_confirmation: 'danny321'
+  })
+danny.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/danny.png"), filename: "danny.png")
+danny.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1340)
+danny.save!
 
 shavonne1 = User.create!({
-  username: 'shavonne1',
+  username: 'shamama',
   email: 'shavonne@waterouais.com',
   password: 'shavonne321',
   password_confirmation: 'shavonne321'
 })
+shavonne1.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/shavonne.png"), filename: "shavonne.png")
 shavonne1.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 464)
 shavonne1.save!
 
-gabriela29 = User.create!({
-  username: 'gabriela29',
-  email: 'gabriela@waterouais.com',
-  password: 'gabriela321',
-  password_confirmation: 'gabriela321'
+nadia = User.create!({
+  username: 'nadiaa',
+  email: 'nadia@waterouais.com',
+  password: 'nadia321',
+  password_confirmation: 'nadia321'
 })
-gabriela29.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 990)
-gabriela29.save!
+nadia.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/nadia.png"), filename: "nadia.png")
+nadia.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 990)
+nadia.save!
 
-zahraa32 = User.create!({
-  username: 'zahraa32',
-  email: 'zahra@waterouais.com',
-  password: 'zahra321',
-  password_confirmation: 'zahra321'
+fred95 = User.create!({
+  username: 'fred95',
+  email: 'fred@waterouais.com',
+  password: 'fred321',
+  password_confirmation: 'fred321'
 })
-zahraa32.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 670)
-zahraa32.save!
+fred95.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/fred.png"), filename: "fred.png")
+fred95.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 670)
+fred95.save!
 
 alainah = User.create!({
   username: 'alainah',
@@ -100,6 +105,7 @@ alainah = User.create!({
   password: 'alainah321',
   password_confirmation: 'alainah321'
 })
+alainah.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/alainah.jpg"), filename: "alainah.jpg")
 alainah.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 800)
 alainah.save!
 
@@ -118,6 +124,8 @@ sofia = User.create!({
   password: 'sofia321',
   password_confirmation: 'sofia321'
 })
+sofia_avatar = URI.open("https://ca.slack-edge.com/T02NE0241-U020VNWMRSN-68a250703b8f-512")
+sofia.avatar.attach(io: sofia_avatar, filename: "sofia_avatar.jpeg", content_type:"image/jpeg")
 sofia.create_score(check_in: 0, stations_created: 0, reviews_submitted: 0, photos_added: 0, total_score: 1000)
 sofia.save!
 
@@ -160,6 +168,8 @@ mt_royal_park = Station.create!({
   description: 'On the way up to the lookout point',
   user: User.first
 })
+mt_royal_park.photos.attach(io: File.open("#{Rails.root}/app/assets/images/parc_mt_royal.jpeg"), filename: "mtroyal.jpeg")
+mt_royal_park.save!
 
 parc_louis_riel = Station.create!({
   name: 'Louis-Riel Park',
